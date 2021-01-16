@@ -1,0 +1,27 @@
+
+@Component({
+  selector: "app-personnel-detail",
+  template: `
+    <div class="card" [ngClass]="cardClass">
+      <img class="avatar" [src]="personnelInfo.avatarUrl" />
+      <div class="text">
+        <h3>{{ personnelInfo.name | titlecase }}</h3>
+        <h5 class="handle">{{ personnelInfo.username }}</h5>
+        <div class="info">
+          <h5>{{ personnelInfo.title | translate }}</h5>
+          <h5>{{ personnelInfo.company | translate }}</h5>
+        </div>
+      </div>
+      <div class="chat">
+        <div class="btn">Github</div>
+        <div class="btn second">Linkedin</div>
+      </div>
+    </div>
+  `,
+  styleUrls: ["./personnel-detail.component.css"],
+})
+export class PersonnelDetailComponent {
+  @Input() cardClass: string = "";
+
+  @Input() personnelInfo = {} as PersonnelInfo;
+}

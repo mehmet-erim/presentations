@@ -1,0 +1,21 @@
+export default sandboxOf(PersonnelDetailComponent, {
+  imports: [TranslateModule.forRoot()],
+})
+  .add("Mehmet Erim", {
+    template: `
+    <app-personnel-detail 
+      [cardClass]="cardClass" 
+      [personnelInfo]="personnelInfo">
+    </app-personnel-detail>
+    `,
+    context: {
+      cardClass: "center",
+      personnelInfo: {
+        name: "Mehmet Erim",
+        username: "@mehmet-erim",
+        title: "Front-End Developer",
+        company: "Etiya",
+        avatarUrl: "/assets/img/mehmet-erim.jpeg",
+      },
+    },
+  })

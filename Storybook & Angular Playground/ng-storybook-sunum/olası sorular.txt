@@ -1,0 +1,52 @@
+Konuşma
+------
+Merhaba, Hepiniz hoşgeldiniz. Ben Mehmet Erim. Etiya'da Front-end Developer olarak çalışıyorum. Bugün size Storybook ve Angular Playground anlatmaya çalışacağım. En son bu tarz girişimlerde bulunmuştum. Orada da genelde kodu yazan bendim arkadaşlar sunuyordu. Ya da ikisini de yapmıyor masaya oturup slideı ileri geri yaptıran oluyordum. Ama bu sefer iyi hazırlandığımı düşünüyorum.
+
+--- No-React
+Başlamadan önce belirtmek istiyorum burada bahsi geçen storybook angular storybooktur React'ta nasıl çalıştığına değinilmeyecektir.
+
+---Storybook
+Evet Storybook... Daha önce storybooku duyanlar veya kullananlar elini kaldırabilir mi?
+Peki Angular Playground duyan veya kullananları görebilir miyim?
+
+Storybook | Angular Playground çoğunlukta. Storybook çoğunluktaysa React'a güzel ün yapan storybooku Angular'da çok beğenmeyebilirsiniz diyerek bir spoiler vermiş olayım.
+
+---Storybook nedir?
+Şöyle düşünün bir componentiniz var ve bunun gösterimini yapmak istiyorsunuz. Storybook veya Angular Playground tam size göre. Projenizden bağımsız bir şekilde çalışıyor. Dilediğiniz componentinizi dilediğiniz senaryolarla gösterimini yapabiliyorsunuz. Componentlerinizi görmek için token'a ihtiyacınız yok. Backendin ayakta olmasına gerek yok. Veya ulaşmak istediğiniz ekrana çok uzun işlemler sonucu ancak gidebiliyorsanız bununla uğraşmaya hiç gerek yok. Etiyadaki Arkadaşlarımın aklında hemen canlanıyordur bir şeyler. Başımızda böyle bir durum var.
+
+---Storybook Gif
+Sol tarafta navigation bulunmakta. Button story ismidir. Default ise senaryo.
+
+--- Ama Daha iyisi var
+
+--- Angular Playground
+Angular Playground, storybookun alternatifidir. Angular projenize ek bir proje olarak eklenir. Yani Monorepo olarak çalışmaktadır. Angularla yazılmıştır.
+
+---Playground Gif
+Başlangıçta yönergeler ile karşınıza çıkmaktadır. Kullanımı çok kolaydır ve zaten girişte kısayol tuşları belirtilmiştir. Ekranın tamamını componentinize ayırmıştır. Navigationu overlay olarak yapar.
+
+---Peki neden daha iyi?
+
+---Warning Photo
+Projeye storybook ve angular playgroundu çalıştırıp start verdim. Başlattığım gibi warningleri karşıma çıkardı ve haydaa oldum. Aslında çalışmasını etkilemiyor ama bir hevesle projenize kurdunuz ve direk warningle karşılaşmak hoş değil.
+
+---Global scss
+Burada bir şeyler eksik gibi duruyor dimi. Evet global scss dosyanızı default kurulumda okuyamıyor. Bununla ilgili açılan birden fazla issue var fakat verilen cevaplarda sizi tatmin etmiyor.
+
+---Absoulute Path
+Core librarymin altında bulunan lazylodscript servicee verdiğim path buradaki gibidir. Fakat storybook bu dosyayı doğru yerde aramamaktadır.
+
+---Nodemodules ts error
+Bu nadir karşılaşacağınız bir durumdur. Build almadan bir npm paketi publish etmek durumunda kalmıştım. Bu durumda tsconfig.app.json dosyanıza node modules içindeki typescript paketin yolunu veriyorsunuz ve angular sorunsuz olarak bu paketi tüketebiliyor. Fakat storybookta bunu yapmama rağmen bu hatayı bir türlü gideremedim.
+
+---Bu yaşadıklarımdan sonra storybook benim için bitmiştir. Ama sunumumuzda bitmedi. Birazdan karşımıza kullanımı gelecek.
+
+---kurulum
+
+--- 
+
+
+
+Bir kaç kişi aynı anda atom molekül ve organizma yapmaya başladık. Aşırı conflict yedik Bir kişinin PR'ı içeri alındığında diğer kişi conflict yiyordu.
+
+Siz hangisini kullanırdınız? neden?

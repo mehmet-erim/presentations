@@ -1,0 +1,47 @@
+export default sandboxOf(PersonnelDetailComponent, {
+	imports: [FormsModule, TranslateModule.forRoot()],
+	declarations: [CustomForDirective],
+	declareComponent: true,
+}).add("List", {
+	template: `
+<div class="container">
+  <div class="form-field">
+    <input
+      type="text"
+      id="field-text"
+      [(ngModel)]="filterValue">
+    <label
+      class="form-field-label"
+      for="field-text"
+    >Search</label>
+  </div>
+  <div class="mt-1">
+      <app-personnel-detail
+        *customFor="let personnel of personnelInfos; 
+        filterValue: filterValue; 
+        filterKey: 'name'"
+        [personnelInfo]="personnel"
+      ></app-personnel-detail>
+  </div>
+</div>
+`,
+context: {
+  filterValue: "",
+  personnelInfos: [
+    {
+      name: "Mehmet Alp",
+      username: "@mehmet-alp",
+      title: "Javascript Developer",
+      company: "Etiya",
+      avatarUrl: "/assets/img/mehmet-alp.jpg",
+    },
+    {
+      name: "Mehmet Erim",
+      username: "@mehmet-erim",
+      title: "Front-End Developer",
+      company: "Etiya",
+      avatarUrl: "/assets/img/mehmet-erim.jpeg",
+    },
+  ],
+},
+});

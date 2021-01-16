@@ -1,0 +1,10 @@
+export default sandboxOf(TestComponent, {
+  imports: [
+    SharedModule,
+    NgxsModule.forRoot([]),
+    TranslateModule.forRoot(),
+    RouterModule.forRoot([]),
+    CoreModule.forRoot()
+  ],
+}
+)

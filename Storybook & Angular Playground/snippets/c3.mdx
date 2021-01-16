@@ -1,0 +1,17 @@
+@Component({
+  selector: "app-carousel",
+  template: `
+    <div class="slick-container">
+      <ng-content></ng-content>
+    </div>
+  `,
+})
+export class CarouselComponent {
+   @Input() config = {
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  };
+}

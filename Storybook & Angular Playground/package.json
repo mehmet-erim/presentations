@@ -1,0 +1,13 @@
+{
+  "name": "storybook-slide",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "mdx-deck build index.mdx",
+    "start": "mdx-deck index.mdx"
+  },
+  "devDependencies": {
+    "mdx-deck": "^1.7.7",
+    "mdx-deck-code-surfer": "^0.5.5",
+    "raw-loader": "^0.5.1"
+  }
+}

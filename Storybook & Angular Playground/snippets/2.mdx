@@ -1,0 +1,17 @@
+storiesOf("Personnel Detail", module)
+  .add("Mehmet Erim", () => ({
+    moduleMetadata: {
+      imports: [TranslateModule.forRoot()],
+    },
+    component: PersonnelDetailComponent,
+    props: {
+      cardClass: "center",
+      personnelInfo: {
+        name: "Mehmet Erim",
+        username: "@mehmet-erim",
+        title: "Front-End Developer",
+        company: "Etiya",
+        avatarUrl: "/assets/img/mehmet-erim.jpeg",
+      },
+    },
+  }))
