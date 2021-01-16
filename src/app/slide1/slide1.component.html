@@ -1,0 +1,38 @@
+<div class="slide">
+  <h1 class="title"><code>*ngIf</code></h1>
+  <app-code [codes]="codes" [tabs]="tabs" [output]="output"></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>*ngIf</code></h1>
+  <app-code [codes]="andConditionCodes" [tabs]="onlyHtmlTab"></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>*ngIf</code></h1>
+  <app-code [codes]="orConditionCodes" [tabs]="onlyHtmlTab"></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>[ngIf]</code></h1>
+
+  <app-code [codes]="templateCodes" [tabs]="tabs" [output]="output2"></app-code>
+</div>
+
+<ng-template #output>
+  <button (click)="isTextVisible = !isTextVisible">
+    {{ isTextVisible ? "Hide" : "Show" }}
+  </button>
+
+  <p *ngIf="isTextVisible">Lorem ipsum dolor sit amet.</p>
+</ng-template>
+
+<ng-template #output2>
+  <button (click)="isTextVisible = !isTextVisible">
+    {{ isTextVisible ? "Hide" : "Show" }}
+  </button>
+
+  <ng-template [ngIf]="isTextVisible">
+    <p>Lorem ipsum dolor sit amet.</p>
+  </ng-template>
+</ng-template>

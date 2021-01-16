@@ -1,0 +1,16 @@
+.section {
+  text-align: center;
+}
+
+pre {
+  padding: 20px;
+}
+
+.code-editor {
+  color: #fff;
+  font-size: 18px;
+
+  &:focus {
+    outline: none !important;
+  }
+}

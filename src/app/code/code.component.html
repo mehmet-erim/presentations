@@ -1,0 +1,39 @@
+<div class="shell">
+  <div class="shell-header">
+    <span class="shell-header-actions shell-header-close"></span>
+    <span class="shell-header-actions shell-header-minimize"></span>
+    <span class="shell-header-actions shell-header-maximize"></span>
+    <span class="shell-tabs">
+      <span
+        *ngFor="let tab of tabs; let i = index"
+        class="shell-tab"
+        [class.active]="selectedTab === i"
+        (click)="selectedTab = i"
+        >{{ tab }}</span
+      >
+    </span>
+    <span
+      *ngIf="output"
+      class="shell-tab"
+      [class.active]="selectedTab === 'output'"
+      (click)="selectedTab = 'output'"
+      >OUTPUT</span
+    >
+  </div>
+
+  <div class="shell-body">
+    <ng-container *ngFor="let code of codes; let i = index">
+      <div [class.active]="selectedTab === i" class="shell-tab-content">
+        <figure class="highlight">
+          <pre><code class="language-{{tabs[i] | lowercase}}">{{code}}</code></pre>
+        </figure>
+      </div>
+    </ng-container>
+    <div
+      *ngIf="selectedTab === 'output'"
+      class="shell-tab-content active output"
+    >
+      <ng-container *ngTemplateOutlet="output"></ng-container>
+    </div>
+  </div>
+</div>
