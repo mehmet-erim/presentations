@@ -1,3 +1,3 @@
 ### Merhaba 👋
 
-#### Sunumlarıma, bu repository'deki klasörlere giderek ulaşabilirsin.
+#### Bu repository'deki klasörlere giderek sunumlarıma ulaşabilirsin.
