@@ -17,7 +17,7 @@ export class CodeComponent {
   @Input() codes: string[] = [];
   @Input() output: TemplateRef<any>;
 
-  selectedTab: string | number = 0;
+  @Input() selectedTab: string | number = 0;
 
   ngAfterViewInit() {}
 }

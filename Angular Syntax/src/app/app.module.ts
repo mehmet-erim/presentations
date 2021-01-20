@@ -7,6 +7,7 @@ import { Slide1Component } from './slide1/slide1.component';
 import { SlideTitleComponent } from './slide-title/slide-title.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { DialogModule } from '@ngneat/dialog';
+import { Slide2Component } from './slide2/slide2.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { DialogModule } from '@ngneat/dialog';
     Slide1Component,
     SlideTitleComponent,
     IntroductionComponent,
+    Slide2Component,
   ],
   imports: [BrowserModule, AngularFullpageModule, DialogModule.forRoot()],
   providers: [],
