@@ -1,0 +1,104 @@
+<div class="slide">
+  <h1 class="title">Property Binding</h1>
+  <ul>
+    <li>
+      Bir değeri, hedef element'in property'sine tek yönlü olarak iletmeyi
+      sağlar.
+    </li>
+  </ul>
+</div>
+<div class="slide">
+  <h1 class="title">Property Binding</h1>
+
+  <app-code
+    [codes]="codeSnippets.basic.codes"
+    [tabs]="codeSnippets.basic.tabs"
+    [output]="basicTmp"
+  ></app-code>
+</div>
+
+<ng-template #basicTmp>
+  <ng-container
+    *ngIf="{
+      imageUrl: 'https://source.unsplash.com/user/erondu/350x350'
+    } as data"
+  >
+    <img [src]="data.imageUrl" />
+
+    <br />
+
+    <button style="font-size: 30px" [disabled]="true">Disabled Button</button>
+  </ng-container>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Style & Class Binding</h1>
+
+  <app-code
+    [codes]="codeSnippets.modifier.codes"
+    [tabs]="codeSnippets.modifier.tabs"
+    [output]="modifierTmp"
+  ></app-code>
+</div>
+
+<ng-template #modifierTmp>
+  <div class="rectangle" [style.width]="'100px'" [style.background]="'orange'">
+    100px
+  </div>
+  <div class="rectangle" [style.width.px]="100">100px</div>
+  <div class="rectangle" [style.width.vw]="40">40vw</div>
+  <div class="rectangle" [style.width.%]="70">70%</div>
+  <div class="rectangle" [style]="{ width: '150px', height: '150px' }"></div>
+  <div class="rectangle" [style]="'width: 150px; height: 150px'"></div>
+  <div [class.rectangle]="true"></div>
+  <div [class]="'rectangle'"></div>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Attribute Binding</h1>
+  <app-code
+    [codes]="codeSnippets.attrBinding.codes"
+    [tabs]="codeSnippets.attrBinding.tabs"
+    [extras]="[{ tab: 'SS', output: btnAttributesSS }]"
+  ></app-code>
+</div>
+
+<ng-template #btnAttributesSS>
+  <img src="assets/images/btn-attributes.png" height="70" />
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Property Binding vs Attribute Binding</h1>
+  <app-code
+    [codes]="codeSnippets.propVsAttr.codes"
+    [tabs]="codeSnippets.propVsAttr.tabs"
+  ></app-code>
+
+  <ul style="width: 45%; margin: 0 auto; text-align: left">
+    Property binding'in avantajları:
+    <li>- Syntax daha kısadır.</li>
+    <li>- Daha kolay okunur.</li>
+    <li>- Daha performanslı çalışır.</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1 class="title">Bind values between components</h1>
+  <app-code
+    [codes]="codeSnippets.image.codes"
+    [tabs]="codeSnippets.image.tabs"
+    [output]="appImageTmp"
+  ></app-code>
+</div>
+
+<ng-template #appImageTmp>
+  <app-image></app-image>
+  <hr />
+  <app-image
+    [source]="'https://source.unsplash.com/user/erondu/150x150'"
+  ></app-image>
+  <hr />
+  <app-image
+    source="https://source.unsplash.com/user/erondu/160x160"
+  ></app-image>
+</ng-template>

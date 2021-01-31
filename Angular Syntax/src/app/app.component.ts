@@ -4,11 +4,11 @@ import { fromEvent } from 'rxjs';
 import { debounceTime, filter } from 'rxjs/operators';
 
 const sectionsColor = [
-  '#ffffff',
   '#7f8c8d',
+  '#ffffff',
   '#1abc9c',
-  '#f1c40f',
-  '#3498db',
+  'rgb(173 150 61)',
+  'rgb(54 125 173)',
   '#e74c3c',
   '#8c7ae6',
   '#e84118',

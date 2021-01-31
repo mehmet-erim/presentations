@@ -3,22 +3,34 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFullpageModule } from '@fullpage/angular-fullpage';
 import { AppComponent } from './app.component';
 import { CodeComponent } from './code/code.component';
-import { Slide1Component } from './slide1/slide1.component';
+import { InterpolationComponent } from './interpolation/interpolation.component';
 import { SlideTitleComponent } from './slide-title/slide-title.component';
 import { IntroductionComponent } from './introduction/introduction.component';
 import { DialogModule } from '@ngneat/dialog';
-import { Slide2Component } from './slide2/slide2.component';
+import { NgIfComponent } from './ng-if/ng-if.component';
+import { PropertyBindingComponent } from './property-binding/property-binding.component';
+import { ImageComponent } from './image/image.component';
+import { RouterModule } from '@angular/router';
+import { EventBindingComponent } from './event-binding/event-binding.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CodeComponent,
-    Slide1Component,
+    InterpolationComponent,
     SlideTitleComponent,
     IntroductionComponent,
-    Slide2Component,
+    NgIfComponent,
+    PropertyBindingComponent,
+    ImageComponent,
+    EventBindingComponent,
   ],
-  imports: [BrowserModule, AngularFullpageModule, DialogModule.forRoot()],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot([]),
+    AngularFullpageModule,
+    DialogModule.forRoot(),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
