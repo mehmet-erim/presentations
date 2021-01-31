@@ -13,9 +13,10 @@ import { fromEvent } from 'rxjs';
   styleUrls: ['./code.component.scss'],
 })
 export class CodeComponent {
-  @Input() tabs: string[] = [];
+  @Input() tabs: string[] | { label: string; lang: string } = [];
   @Input() codes: string[] = [];
   @Input() output: TemplateRef<any>;
+  @Input() extras: { tab: string; output: TemplateRef<any> }[] = [];
 
   @Input() selectedTab: string | number = 0;
 

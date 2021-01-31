@@ -1,19 +1,20 @@
 code {
-  font-size: 14px;
+  font-size: 30px;
 }
 
 .shell {
-  width: calc(50% - 54px);
+  width: 75%;
+  max-width: 95%;
   display: inline-block;
   background-color: #272822;
   border-radius: 5px 5px 0 0;
   text-align: left;
-  margin-right: 54px;
 }
 .shell-header {
   background-color: rgb(51, 53, 55);
   padding: 0 7px;
   position: relative;
+  height: 80px;
 }
 .shell-header-actions {
   border-radius: 50%;
@@ -45,13 +46,13 @@ code {
 .shell-tab {
   padding: 5px 10px;
   display: inline-block;
-  padding: 14px 10px;
+  padding: 10px;
 }
 .shell-tab {
   margin-left: 5px;
   color: #fff;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 18px;
 }
 .shell-tab.active {
   background-color: rgb(39, 40, 41);
@@ -73,8 +74,13 @@ figure {
 }
 .shell-body {
   margin: 0;
-  max-height: 600px;
+  max-height: 850px;
   overflow-y: scroll;
+
+  pre {
+    margin: 10px 20px 20px 20px !important;
+    padding: 0 !important;
+  }
 
   &::-webkit-scrollbar {
     width: 8px;
