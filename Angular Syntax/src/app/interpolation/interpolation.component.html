@@ -1,0 +1,101 @@
+<div class="slide">
+  <ng-container *ngTemplateOutlet="titleTmp"></ng-container>
+  <ul>
+    <li>- Interpolation: TODO: KELIME ANLAMI</li>
+  </ul>
+</div>
+
+<div class="slide">
+  <h1 class="title">Basic Interpolation</h1>
+  <app-code [codes]="codes1" [tabs]="tabs" [output]="output1"></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title">Interpolation vs Property Binding</h1>
+
+  <app-code [codes]="codes2" [tabs]="tabs" [output]="output2"></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title">JavaScript Expressions in Interpolation</h1>
+  <app-code [codes]="codes3" [tabs]="onlyHtmlTab" [output]="output3"></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title">Method Call in Interpolation</h1>
+
+  <app-code [codes]="codes4" [tabs]="tabs" [output]="output4"></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title">Getter</h1>
+
+  <app-code [codes]="getter" [tabs]="tabs" [output]="getterOutput"></app-code>
+</div>
+
+<ng-template #getterOutput>
+  <p>11 ile 29'u toplayın {{ total }} yapar!</p>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Optional Chaining</h1>
+
+  <app-code
+    [codes]="optionalChaining"
+    [tabs]="tabs"
+    [output]="optionalChainingTmp"
+    [extras]="[{ tab: 'ERROR', output: errorImgTmp }]"
+  ></app-code>
+</div>
+
+<ng-template #optionalChainingTmp>
+  {{ data.user.username }}
+
+  {{ data.user.address?.city | json }}
+
+  {{ data.user.address?.city?.x?.y?.z | json }}
+</ng-template>
+
+<ng-template #errorImgTmp>
+  <img
+    src="assets/images/x-of-undefined-error.png"
+    alt="x-of-undefined-error.png"
+    height="70"
+  />
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Angular Language Service</h1>
+
+  <img
+    src="assets/images/angular-language-service-type-error.png"
+    alt="angular-language-service-type-error"
+  />
+</div>
+
+<div class="slide">
+  <h1 class="title">Interpolation Characters</h1>
+  <app-code [codes]="codes5" [tabs]="tabs" [output]="output1"></app-code>
+</div>
+
+<ng-template #output1>
+  <h3>Merhaba {{ user }} 👋</h3>
+</ng-template>
+
+<ng-template #output2>
+  <img src="{{ imgUrl }}" />
+</ng-template>
+
+<ng-template #output3>
+  <p>
+    11 ile 29'u toplayın <strong>{{ 11 + 29 }}</strong> yapar!
+  </p>
+</ng-template>
+
+<ng-template #output4>
+  <p>11 ile 29'u toplayın {{ sum(11, 29) }} yapar!</p>
+</ng-template>
+
+<ng-template #titleTmp>
+  <h1 class="title">Interpolation</h1>
+</ng-template>
