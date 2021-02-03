@@ -9,7 +9,7 @@ const sectionsColor = [
   '#1abc9c',
   'rgb(173 150 61)',
   'rgb(54 125 173)',
-  '#e74c3c',
+  '#73433e',
   '#8c7ae6',
   '#e84118',
   '#00d8d6',
@@ -55,13 +55,13 @@ export class AppComponent {
     fromEvent(window, 'keyup')
       .pipe(
         filter(
-          (event: KeyboardEvent) => event.key === '.' || event.key === ','
+          (event: KeyboardEvent) => event.key === 'ü' || event.key === 'ğ'
         ),
         debounceTime(150)
       )
       .subscribe((event) => {
-        if (event.key === '.') this.toggleFullscreen();
-        if (event.key === ',') {
+        if (event.key === 'ü') this.toggleFullscreen();
+        if (event.key === 'ğ') {
           this.dialog.open(this.codeEditorRef, { width: '50%', height: '50%' });
         }
       });
@@ -70,13 +70,9 @@ export class AppComponent {
   ngOnInit() {
     this.config = {
       licenseKey: 'YOUR LICENSE KEY HERE',
-      anchors: [
-        'firstPage',
-        'secondPage',
-        'thirdPage',
-        'fourthPage',
-        'lastPage',
-      ],
+      anchors: Array.from(document.querySelectorAll('.section')).map(
+        (_, i) => '' + (i + 1)
+      ),
       navigation: true,
       navigationPosition: 'left',
       sectionsColor,

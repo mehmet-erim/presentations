@@ -44,7 +44,10 @@
     [codes]="optionalChaining"
     [tabs]="tabs"
     [output]="optionalChainingTmp"
-    [extras]="[{ tab: 'ERROR', output: errorImgTmp }]"
+    [extras]="[
+      { tab: 'ERROR', output: errorImgTmp },
+      { tab: 'ANGULAR LANGUAGE SERVICE', output: alsTmp }
+    ]"
   ></app-code>
 </div>
 
@@ -64,14 +67,12 @@
   />
 </ng-template>
 
-<div class="slide">
-  <h1 class="title">Angular Language Service</h1>
-
+<ng-template #alsTmp>
   <img
-    src="assets/images/angular-language-service-type-error.png"
+    src="assets/images/als-type-error.png"
     alt="angular-language-service-type-error"
   />
-</div>
+</ng-template>
 
 <div class="slide">
   <h1 class="title">Interpolation Characters</h1>

@@ -33,7 +33,7 @@ export class MyComponent {
     `
 @Component(/* component metadata */)
 export class MyComponent {
-  imgUrl = 'https://avatars2.githubusercontent.com/u/47100904?s=200&v=4';
+  imgUrl = 'assets/images/ng-turkey-logo.png';
 }
 `,
   ];
@@ -114,7 +114,7 @@ export class MyComponent {
 
   user = 'Mehmet';
 
-  imgUrl = 'https://avatars2.githubusercontent.com/u/47100904?s=200&v=4';
+  imgUrl = 'assets/images/ng-turkey-logo.png';
 
   data = {
     user: {

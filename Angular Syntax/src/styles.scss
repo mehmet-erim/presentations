@@ -6,6 +6,10 @@ body {
   font-size: 45px;
 }
 
+button {
+  font-size: 25px;
+}
+
 ul {
   list-style: none;
 }
@@ -27,4 +31,9 @@ ul {
 
 .ngneat-dialog-content {
   background-color: #272822 !important;
+}
+
+.content {
+  max-width: 85%;
+  margin: 0 auto;
 }

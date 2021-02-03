@@ -1,0 +1,104 @@
+<div class="slide">
+  <div class="content">
+    <h1 class="title">Event Binding</h1>
+
+    <ul>
+      <li>
+        Event binding, mouse hareketleri, tıklamalar gibi pek çok built-in ve
+        custom event'i dinleyebilmeye olanak sağlar.
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="slide">
+  <h1 class="title">Event Binding</h1>
+
+  <app-code
+    [codes]="codeSnippets.basic.codes"
+    [tabs]="codeSnippets.basic.tabs"
+    [output]="basicTmp"
+  ></app-code>
+</div>
+
+<ng-template #basicTmp>
+  <button (click)="onSave()">Save</button>
+  <br />
+  <button (click)="onClick($event)">Click me</button>
+
+  <hr />
+  Input value: {{ inputValue }}
+  <br />
+  <input
+    style="font-size: 27px; padding: 5px"
+    placeholder="Type here"
+    (input)="inputValue = $event.target.value"
+    (keypress)="onKey($event)"
+  />
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">TODO</h1>
+
+  <app-code
+    [codes]="codeSnippets.modifiers.codes"
+    [tabs]="codeSnippets.modifiers.tabs"
+    [output]="modifiersTmp"
+    [extras]="[{ tab: 'ANGULAR LANGUAGE SERVICE', output: alsSuggestionsTmp }]"
+  ></app-code>
+</div>
+
+<ng-template #modifiersTmp>
+  Keyword: {{ keyword }}
+  <br />
+  <input
+    style="font-size: 27px; padding: 5px"
+    type="search"
+    placeholder="Enter a keyword..."
+    (keyup.enter)="search($event.target.value)"
+  />
+</ng-template>
+
+<ng-template #alsSuggestionsTmp>
+  <div style="padding: 8px">
+    <img
+      src="assets/images/als-event-suggestions.png"
+      alt="angular-language-service-event-suggestions"
+      width="600"
+    />
+  </div>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Custom Events with EventEmitter</h1>
+
+  <app-code
+    [codes]="codeSnippets.customEvents.codes"
+    [tabs]="codeSnippets.customEvents.tabs"
+    [output]="customEventsTmp"
+  ></app-code>
+</div>
+
+<ng-template #customEventsTmp>
+  <app-image [source]="imgSrc" (error)="onError()"> </app-image>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Custom Events with Subjects</h1>
+
+  <app-code
+    [codes]="codeSnippets.customEventsWithSubjects.codes"
+    [tabs]="codeSnippets.customEventsWithSubjects.tabs"
+    [output]="customEventsWithSubjectsTmp"
+  ></app-code>
+</div>
+
+<ng-template #customEventsWithSubjectsTmp>
+  <div class="card">
+    <div class="card-content">
+      <h3>Card Title</h3>
+
+      Card body
+    </div>
+  </div>
+</ng-template>
