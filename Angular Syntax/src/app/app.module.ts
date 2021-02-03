@@ -12,6 +12,9 @@ import { PropertyBindingComponent } from './property-binding/property-binding.co
 import { ImageComponent } from './image/image.component';
 import { RouterModule } from '@angular/router';
 import { EventBindingComponent } from './event-binding/event-binding.component';
+import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
+import { CounterComponent } from './counter/counter.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,9 +27,12 @@ import { EventBindingComponent } from './event-binding/event-binding.component';
     PropertyBindingComponent,
     ImageComponent,
     EventBindingComponent,
+    TwoWayBindingComponent,
+    CounterComponent,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot([]),
     AngularFullpageModule,
     DialogModule.forRoot(),

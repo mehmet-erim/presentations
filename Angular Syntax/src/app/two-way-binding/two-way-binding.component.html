@@ -1,0 +1,56 @@
+<div class="slide">
+  <h1 class="title">Two Way Binding</h1>
+
+  Two way binding, üst ve alt componentler arasında veri paylaşımını sağlar.
+  Veri değiştiğinde, üst ve alt component'de aynı anda güncellenir.
+</div>
+
+<div class="slide">
+  <h1 class="title">Custom Two Way Binding</h1>
+
+  <app-code
+    [codes]="codeSnippets.custom.codes"
+    [tabs]="codeSnippets.custom.tabs"
+    [output]="customTmp"
+  ></app-code>
+</div>
+
+<ng-template #customTmp>
+  <app-counter [(count)]="myCount"></app-counter>
+  <br />
+
+  <span style="font-size: 25px" (click)="myCount = myCount + 1"
+    ><code style="font-size: 25px; margin-right: 5px">myCount</code>:
+    {{ myCount }}</span
+  >
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>ngModel</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngModel.codes"
+    [tabs]="codeSnippets.ngModel.tabs"
+    [output]="ngModelTmp"
+  ></app-code>
+</div>
+
+<ng-template #ngModelTmp>
+  <input style="font-size: 30px" type="number" [(ngModel)]="myCount" min="0" />
+
+  <br />
+
+  <span style="font-size: 30px" (click)="myCount = myCount + 1"
+    ><code style="font-size: 30px; margin-right: 5px">myCount</code>:
+    {{ myCount }}</span
+  >
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Control Value Accessor</h1>
+
+  <app-code
+    [codes]="codeSnippets.controlValueAccessor.codes"
+    [tabs]="codeSnippets.controlValueAccessor.tabs"
+  ></app-code>
+</div>
