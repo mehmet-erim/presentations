@@ -30,4 +30,8 @@ export class CounterComponent {
   decrement() {
     this.count = this.count - 1;
   }
+
+  reset() {
+    this.count = 1;
+  }
 }
