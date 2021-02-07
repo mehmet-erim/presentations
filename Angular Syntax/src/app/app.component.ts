@@ -11,8 +11,8 @@ const sectionsColor = [
   'rgb(54 125 173)',
   '#73433e',
   '#8c7ae6',
-  '#e84118',
-  '#00d8d6',
+  '#a04d39',
+  'rgb(66 177 176)',
   '#f53b57',
   '#ffa801',
   '#808e9b',
@@ -76,7 +76,6 @@ export class AppComponent {
       navigation: true,
       navigationPosition: 'left',
       sectionsColor,
-      scrollHorizontally: true,
 
       // events callback
       afterLoad: (origin, destination, direction) => {
@@ -96,6 +95,8 @@ export class AppComponent {
 
   getRef(fullPageRef) {
     this.fullpageRef = fullPageRef;
+
+    // this.fullpageRef.setAllowScrolling(false);
   }
 
   toggleFullscreen() {

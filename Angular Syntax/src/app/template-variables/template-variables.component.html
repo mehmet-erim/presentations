@@ -1,0 +1,109 @@
+<div class="slide">
+  <h1 class="title">Template Variables</h1>
+
+  <div class="content">
+    <ul>
+      <li>
+        TODO: Şablon değişkenleri, şablonun bir bölümündeki verileri şablonun
+        başka bir bölümünde kullanmanıza yardımcı olur. Şablon değişkenleriyle,
+        kullanıcı girdisine yanıt verme veya uygulamanızın formlarını hassas bir
+        şekilde ayarlama gibi görevleri gerçekleştirebilirsiniz.
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="slide">
+  <h1 class="title">Syntax</h1>
+
+  <app-code
+    [codes]="codeSnippets.syntax.codes"
+    [tabs]="codeSnippets.syntax.tabs"
+    [output]="syntaxTmp"
+  ></app-code>
+</div>
+
+<ng-template #syntaxTmp>
+  <input #phone placeholder="Phone number" />
+
+  <br />
+
+  {{ phone.value }}
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Template Variables</h1>
+
+  <app-code
+    [codes]="codeSnippets.intro.codes"
+    [tabs]="codeSnippets.intro.tabs"
+    [output]="introTmp"
+  ></app-code>
+</div>
+
+<ng-template #introTmp>
+  <button style="margin-bottom: 7px" (click)="start()">Subscribe</button>
+  <input
+    style="display: none; margin-bottom: 5px"
+    #name
+    placeholder="Name"
+    (keyup.enter)="email.focus()"
+  />
+
+  <input
+    style="display: none"
+    #email
+    placeholder="Email"
+    (keyup.enter)="subscribe()"
+  />
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Template Variables</h1>
+
+  <app-code
+    [codes]="codeSnippets.variableOnComponent.codes"
+    [tabs]="codeSnippets.variableOnComponent.tabs"
+    [output]="variableOnComponentTmp"
+    [extras]="[{ tab: 'ANGULAR LANGUAGE SERVICE', output: alsSuggestions }]"
+  ></app-code>
+</div>
+
+<ng-template #variableOnComponentTmp>
+  <app-counter #counter></app-counter>
+
+  <br />
+  <button (click)="counter.reset()">Reset</button>
+</ng-template>
+
+<ng-template #alsSuggestions>
+  <img src="assets/images/als-variable-suggestions.jpg" width="800" />
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Template Variables</h1>
+
+  <app-code
+    [codes]="codeSnippets.directive.codes"
+    [tabs]="codeSnippets.directive.tabs"
+    [output]="directiveTmp"
+  ></app-code>
+</div>
+
+<ng-template #directiveTmp>
+  <div
+    style="min-height: 300px"
+    #dropdownRef="dropdown"
+    [dropdown]="dropdownMenu"
+  >
+    <button (click)="dropdownRef.toggle()">Toggle</button>
+
+    <div #dropdownMenu>
+      <ul style="padding: 0; margin: 0">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+      </ul>
+    </div>
+  </div>
+</ng-template>

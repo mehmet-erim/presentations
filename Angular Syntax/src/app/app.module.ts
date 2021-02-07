@@ -15,6 +15,9 @@ import { EventBindingComponent } from './event-binding/event-binding.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 import { CounterComponent } from './counter/counter.component';
 import { FormsModule } from '@angular/forms';
+import { TemplateVariablesComponent } from './template-variables/template-variables.component';
+import { DropdownDirective } from './dropdown.directive';
+import { AngularLanguageServiceComponent } from './angular-language-service/angular-language-service.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,9 @@ import { FormsModule } from '@angular/forms';
     EventBindingComponent,
     TwoWayBindingComponent,
     CounterComponent,
+    TemplateVariablesComponent,
+    DropdownDirective,
+    AngularLanguageServiceComponent,
   ],
   imports: [
     BrowserModule,

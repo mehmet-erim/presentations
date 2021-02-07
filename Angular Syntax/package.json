@@ -21,6 +21,7 @@
     "@angular/router": "~11.0.9",
     "@fullpage/angular-fullpage": "0.0.14",
     "@ngneat/dialog": "^1.0.4",
+    "fireworks": "^2.2.7",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
