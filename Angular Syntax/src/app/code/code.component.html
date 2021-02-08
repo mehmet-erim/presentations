@@ -8,21 +8,21 @@
         *ngFor="let tab of tabs; let i = index"
         class="shell-tab"
         [class.active]="selectedTab === i"
-        (click)="selectedTab = i"
+        (click)="selectedTab = i; changeTab.emit(i)"
         >{{ tab?.label || tab }}</span
       >
       <span
         *ngIf="output"
         class="shell-tab"
         [class.active]="selectedTab === 'output'"
-        (click)="selectedTab = 'output'"
+        (click)="selectedTab = 'output'; changeTab.emit('output')"
         >OUTPUT</span
       >
       <span
         *ngFor="let extra of extras; let i = index"
         class="shell-tab"
         [class.active]="selectedTab === 'extra' + i"
-        (click)="selectedTab = 'extra' + i"
+        (click)="selectedTab = 'extra' + i; changeTab.emit('extra' + i)"
         >{{ extra.tab }}</span
       >
     </span>

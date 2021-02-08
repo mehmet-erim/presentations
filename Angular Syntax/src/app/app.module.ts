@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { TemplateVariablesComponent } from './template-variables/template-variables.component';
 import { DropdownDirective } from './dropdown.directive';
 import { AngularLanguageServiceComponent } from './angular-language-service/angular-language-service.component';
+import { NgTemplateComponent } from './ng-template/ng-template.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AngularLanguageServiceComponent } from './angular-language-service/angu
     TemplateVariablesComponent,
     DropdownDirective,
     AngularLanguageServiceComponent,
+    NgTemplateComponent,
   ],
   imports: [
     BrowserModule,

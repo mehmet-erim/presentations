@@ -1,7 +1,9 @@
 import {
   Component,
   ElementRef,
+  EventEmitter,
   Input,
+  Output,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
@@ -19,6 +21,8 @@ export class CodeComponent {
   @Input() extras: { tab: string; output: TemplateRef<any> }[] = [];
 
   @Input() selectedTab: string | number = 0;
+
+  @Output() changeTab = new EventEmitter();
 
   ngAfterViewInit() {}
 }

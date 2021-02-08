@@ -1,4 +1,4 @@
-const standardTabs = ['HTML', 'TS'];
+export const standardTabs = ['HTML', 'TS'];
 
 export const eventBindingCodeSnippets = {
   basic: {

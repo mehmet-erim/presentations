@@ -1,0 +1,233 @@
+<div class="slide">
+  <h1 class="title">Angular Templates</h1>
+
+  <div class="content">TODO</div>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>ng-template</code></h1>
+
+  <div class="content">TODO</div>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>ng-template</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngTemplate.codes"
+    [tabs]="codeSnippets.ngTemplate.tabs"
+    [output]="ngTemplateTmp"
+  ></app-code>
+</div>
+
+<ng-template #ngTemplateTmp>
+  <ng-template>
+    <button>Submit</button>
+  </ng-template>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>*ngIf</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngIf.codes"
+    [tabs]="codeSnippets.ngIf.tabs"
+    [output]="ngIfTmp"
+    (changeTab)="$event === 'output' ? setUser() : (user = null)"
+  ></app-code>
+</div>
+
+<ng-template #ngIfTmp>
+  <div *ngIf="user; else loading">
+    {{ user }}
+  </div>
+
+  <ng-template #loading>
+    <div>Loading...</div>
+  </ng-template>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>[ngIf]</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngIfAttribute.codes"
+    [tabs]="codeSnippets.ngIfAttribute.tabs"
+    [output]="ngIfAttributeTmp"
+    (changeTab)="$event === 'output' ? setUser() : (user = null)"
+  ></app-code>
+</div>
+
+<ng-template #ngIfAttributeTmp>
+  <ng-template [ngIf]="user" [ngIfElse]="loading">
+    <div>
+      {{ user }}
+    </div>
+  </ng-template>
+
+  <ng-template #loading>
+    <div>Loading...</div>
+  </ng-template>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>ng-container</code></h1>
+
+  <div class="content">TODO</div>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>ng-container</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngContainer.codes"
+    [tabs]="codeSnippets.ngContainer.tabs"
+    [output]="ngContainerTmp"
+  ></app-code>
+</div>
+
+<ng-template #ngContainerTmp>
+  <ng-container>
+    <button>Submit</button>
+  </ng-container>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>ng-container</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngContainer2.codes"
+    [tabs]="codeSnippets.ngContainer2.tabs"
+    [output]="ngContainer2Tmp"
+  ></app-code>
+</div>
+
+<ng-template #ngContainer2Tmp>
+  <div>
+    John Doe
+    <ng-container *ngIf="false"> - +905558887744</ng-container>
+  </div>
+  <hr />
+  <div>
+    Ervin Howell
+    <ng-container *ngIf="true"> - +905558887744</ng-container>
+  </div>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>ng-container</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngContainer3.codes"
+    [tabs]="codeSnippets.ngContainer3.tabs"
+    [output]="ngContainer3Tmp"
+    [extras]="[{ tab: 'ANGULAR LANGUAGE SERVICE', output: alsErrorTmp }]"
+  ></app-code>
+</div>
+
+<ng-template #alsErrorTmp>
+  <img src="assets/images/als-error-structural-directives.jpg" alt="" />
+</ng-template>
+
+<ng-template #ngContainer3Tmp>
+  <ul>
+    <li *ngFor="let user of ['John Doe', null, 'Ervin Howell']">
+      <ng-container *ngIf="user">
+        {{ user }}
+      </ng-container>
+    </li>
+  </ul>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>*ngTemplateOutlet</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngTemplateOutlet.codes"
+    [tabs]="codeSnippets.ngTemplateOutlet.tabs"
+    [output]="ngTemplateOutletTmp"
+  ></app-code>
+</div>
+
+<ng-template #ngTemplateOutletTmp>
+  <form id="my-form-1">
+    <input placeholder="name" />
+
+    <ng-container *ngTemplateOutlet="submitBtnTemplate"></ng-container>
+  </form>
+
+  <form id="my-form-2">
+    <input placeholder="email" />
+
+    <ng-container *ngTemplateOutlet="submitBtnTemplate"></ng-container>
+  </form>
+
+  <ng-template #submitBtnTemplate>
+    <button type="submit" class="btn btn-primary btn-block btn-sm">
+      Submit
+    </button>
+  </ng-template>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>ngTemplateOutletContext</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngTemplateOutletContext.codes"
+    [tabs]="codeSnippets.ngTemplateOutletContext.tabs"
+    [output]="ngTemplateOutletContextTmp"
+  ></app-code>
+</div>
+
+<ng-template #ngTemplateOutletContextTmp>
+  <form id="my-form-1">
+    <input placeholder="name" />
+    <ng-container
+      *ngTemplateOutlet="
+        submitBtnTemplate;
+        context: {
+          $implicit: 'bi bi-check text-success ml-1',
+          isBtnPrimary: false
+        }
+      "
+    ></ng-container>
+  </form>
+  <form id="my-form-2">
+    <input placeholder="email" />
+    <ng-container
+      *ngTemplateOutlet="submitBtnTemplate; context: { isBtnPrimary: true }"
+    ></ng-container>
+  </form>
+
+  <ng-template #submitBtnTemplate let-iconClasses let-isPrimary="isBtnPrimary">
+    <button type="submit" class="btn" [class.btn-primary]="isPrimary">
+      Submit <i [ngClass]="iconClasses"></i>
+    </button>
+  </ng-template>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>*ngComponentOutlet</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngComponentOutlet.codes"
+    [tabs]="codeSnippets.ngComponentOutlet.tabs"
+    [output]="ngComponentOutletTmp"
+  ></app-code>
+</div>
+
+<ng-template #ngComponentOutletTmp>
+  <ng-container *ngComponentOutlet="counterComponent"></ng-container>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>ViewContainerRef</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.viewContainerRef.codes"
+    [tabs]="codeSnippets.viewContainerRef.tabs"
+    [output]="viewContainerRefTmp"
+  ></app-code>
+</div>
+
+<ng-template #viewContainerRefTmp> 👋 </ng-template>
