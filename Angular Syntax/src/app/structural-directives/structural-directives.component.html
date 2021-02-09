@@ -1,0 +1,74 @@
+<div class="slide">
+  <h1 class="title">Structural Directives</h1>
+
+  <div class="content">TODO</div>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>*ngFor</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngFor.codes"
+    [tabs]="codeSnippets.ngFor.tabs"
+    [output]="ngForTmp"
+  ></app-code>
+</div>
+
+<ng-template #ngForTmp>
+  <div
+    *ngFor="
+      let hero of heroes;
+      let i = index;
+      let odd = odd;
+      trackBy: trackByFn
+    "
+  >
+    Index: {{ i }}, Hero: {{ hero }}, Odd: {{ odd }}
+  </div>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>[ngForOf]</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngForOf.codes"
+    [tabs]="codeSnippets.ngForOf.tabs"
+    [output]="ngForOfTmp"
+  ></app-code>
+</div>
+
+<ng-template #ngForOfTmp>
+  <ng-template
+    ngFor
+    [ngForOf]="heroes"
+    let-hero
+    let-i="index"
+    let-odd="odd"
+    [ngForTrackBy]="trackByFn"
+  >
+    <div>Index: {{ i }}, Hero: {{ hero }}, Odd: {{ odd }}</div>
+  </ng-template>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title"><code>*myFor</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.myFor.codes"
+    [tabs]="codeSnippets.myFor.tabs"
+    [output]="myForTmp"
+  ></app-code>
+</div>
+
+<ng-template #myForTmp>
+  <div
+    *myFor="
+      let hero of heroes;
+      let i = index;
+      let odd = odd;
+      trackBy: trackByFn
+    "
+  >
+    Index: {{ i }}, Hero: {{ hero }}, Odd: {{ odd }}
+  </div>
+</ng-template>

@@ -19,6 +19,8 @@ import { TemplateVariablesComponent } from './template-variables/template-variab
 import { DropdownDirective } from './dropdown.directive';
 import { AngularLanguageServiceComponent } from './angular-language-service/angular-language-service.component';
 import { NgTemplateComponent } from './ng-template/ng-template.component';
+import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
+import { MyForDirective } from './my-for.directive';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { NgTemplateComponent } from './ng-template/ng-template.component';
     DropdownDirective,
     AngularLanguageServiceComponent,
     NgTemplateComponent,
+    StructuralDirectivesComponent,
+    MyForDirective,
   ],
   imports: [
     BrowserModule,
