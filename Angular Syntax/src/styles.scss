@@ -199,3 +199,11 @@ input[type="submit"] {
 .ml-1 {
   margin-left: 8px;
 }
+
+h1.title {
+  text-transform: uppercase;
+
+  code {
+    text-transform: none;
+  }
+}

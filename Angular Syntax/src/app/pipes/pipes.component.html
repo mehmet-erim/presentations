@@ -1,0 +1,72 @@
+<div class="slide">
+  <h1 class="title">Pipes</h1>
+
+  <div class="content">
+    Pipe'lar, template içerisinde <strong>bir değeri dönüştürerek</strong> DOM'a
+    yerleştirmek için kullanabileceğiniz bileşenlerdir. Angular, <i>date</i>,
+    <i>slice</i>, <i>json</i>, <i>async</i>, <i>currency</i> gibi pek çok pipe'ı
+    bize built-in olarak sunmaktadır.
+  </div>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>DatePipe</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.date.codes"
+    [tabs]="codeSnippets.date.tabs"
+    [output]="dateTmp"
+  ></app-code>
+</div>
+
+<ng-template #dateTmp>
+  {{ birthdate | date }}
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Transforming data with parameters</h1>
+
+  <app-code
+    [codes]="codeSnippets.parameter.codes"
+    [tabs]="codeSnippets.parameter.tabs"
+    [output]="parameterTmp"
+  ></app-code>
+</div>
+
+<ng-template #parameterTmp>
+  {{ 17.9 | currency: "TRY":"symbol":"1.2-2" }}
+  <br />
+  {{ "2021.2.13" | date: "long" }}
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Chained Pipes</h1>
+
+  <app-code
+    [codes]="codeSnippets.chained.codes"
+    [tabs]="codeSnippets.chained.tabs"
+    [output]="chainedTmp"
+  ></app-code>
+</div>
+
+<ng-template #chainedTmp>
+  {{ createdAt | async | date: "dd MMMM yyyy EEEE" | uppercase }}
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Custom Pipe</h1>
+
+  <app-code
+    [codes]="codeSnippets.custom.codes"
+    [tabs]="codeSnippets.custom.tabs"
+    [output]="customTmp"
+  ></app-code>
+</div>
+
+<ng-template #customTmp>
+  {{ ([302, 103, 871, 1, 99, 0] | sort).join(" - ") }}
+
+  <br />
+
+  {{ ([302, 103, 871, 1, 99, 0] | sort: true).join(" - ") }}
+</ng-template>

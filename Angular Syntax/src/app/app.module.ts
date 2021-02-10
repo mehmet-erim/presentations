@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFullpageModule } from '@fullpage/angular-fullpage';
 import { AppComponent } from './app.component';
@@ -21,6 +21,12 @@ import { AngularLanguageServiceComponent } from './angular-language-service/angu
 import { NgTemplateComponent } from './ng-template/ng-template.component';
 import { StructuralDirectivesComponent } from './structural-directives/structural-directives.component';
 import { MyForDirective } from './my-for.directive';
+import { PipesComponent } from './pipes/pipes.component';
+import { registerLocaleData } from '@angular/common';
+import tr from '@angular/common/locales/tr';
+import { SortPipe } from './sort.pipe';
+
+registerLocaleData(tr);
 
 @NgModule({
   declarations: [
@@ -41,6 +47,8 @@ import { MyForDirective } from './my-for.directive';
     NgTemplateComponent,
     StructuralDirectivesComponent,
     MyForDirective,
+    PipesComponent,
+    SortPipe,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +57,7 @@ import { MyForDirective } from './my-for.directive';
     AngularFullpageModule,
     DialogModule.forRoot(),
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'tr' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
