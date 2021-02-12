@@ -1,4 +1,9 @@
-<div fullpage id="fullpage" [options]="config" (ref)="getRef($event)">
+<div
+  fullpage
+  id="fullpage"
+  [options]="config"
+  (ref)="getRef($event)"
+>
   <div class="section">
     <app-introduction></app-introduction>
   </div>
@@ -6,10 +11,7 @@
     <app-slide-title></app-slide-title>
   </div>
   <div class="section">
-    TODO: Dikkatleri toplayacak bir giriş React ile ilgili olabilir
-  </div>
-  <div class="section">
-    <app-angular-language-service></app-angular-language-service>
+    <app-complex-example></app-complex-example>
   </div>
   <div class="section">
     <app-interpolation></app-interpolation>
@@ -27,7 +29,6 @@
     <app-template-variables></app-template-variables>
   </div>
   <div class="section">
-    <ng-template>TEST</ng-template>
     <app-ng-template></app-ng-template>
   </div>
   <div class="section">
@@ -35,6 +36,9 @@
   </div>
   <div class="section">
     <app-pipes></app-pipes>
+  </div>
+  <div class="section">
+    <app-angular-language-service></app-angular-language-service>
   </div>
 </div>
 

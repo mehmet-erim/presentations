@@ -1,14 +1,11 @@
 <div class="slide">
   <h1 class="title">Property Binding</h1>
-  <ul>
-    <li>
-      Bir değeri, hedef element'in property'sine tek yönlü olarak iletmeyi
-      sağlar.
-    </li>
-  </ul>
+  <div class="content">
+    Bir değeri, hedef element'in property'sine tek yönlü olarak iletmeyi sağlar.
+  </div>
 </div>
 <div class="slide">
-  <h1 class="title">Property Binding</h1>
+  <h1 class="title">Binding Syntax</h1>
 
   <app-code
     [codes]="codeSnippets.basic.codes"
@@ -27,7 +24,7 @@
 
     <br />
 
-    <button style="font-size: 30px" [disabled]="true">Disabled Button</button>
+    <img bind-src="data.imageUrl" />
   </ng-container>
 </ng-template>
 
@@ -42,17 +39,52 @@
 </div>
 
 <ng-template #modifierTmp>
-  <div class="rectangle" [style.width]="'100px'" [style.background]="'orange'">
+  <div class="rectangle" style="width: 100px; background-color: #9ee60c"></div>
+  <div class="rectangle" [style]="styles"></div>
+  <div
+    class="rectangle"
+    [style]="{ width: '150px', backgroundColor: '#9ee60c' }"
+  ></div>
+  <div
+    class="rectangle"
+    [style.width]="'100px'"
+    [style.backgroundColor]="'orange'"
+  >
     100px
   </div>
+  <div class="rectangle" [style.background-color]="'orange'"></div>
   <div class="rectangle" [style.width.px]="100">100px</div>
-  <div class="rectangle" [style.width.vw]="40">40vw</div>
   <div class="rectangle" [style.width.%]="70">70%</div>
-  <div class="rectangle" [style]="{ width: '150px', height: '150px' }"></div>
-  <div class="rectangle" [style]="'width: 150px; height: 150px'"></div>
-  <div [class.rectangle]="true"></div>
-  <div [class]="'rectangle'"></div>
+  <div [class.rectangle]="false">not rectangle</div>
+  <div [class]="classes"></div>
 </ng-template>
+
+<div class="slide">
+  <h1 class="title">Difference between attribute and property</h1>
+
+  <app-code
+    [codes]="codeSnippets.differenceAttributeProperty.codes"
+    [tabs]="codeSnippets.differenceAttributeProperty.tabs"
+  ></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title">Difference between attribute and property</h1>
+
+  <app-code
+    [codes]="codeSnippets.differenceAttributeProperty2.codes"
+    [tabs]="codeSnippets.differenceAttributeProperty2.tabs"
+  ></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title">Difference between attribute and property</h1>
+
+  <app-code
+    [codes]="codeSnippets.differenceAttributeProperty3.codes"
+    [tabs]="codeSnippets.differenceAttributeProperty3.tabs"
+  ></app-code>
+</div>
 
 <div class="slide">
   <h1 class="title">Attribute Binding</h1>
@@ -74,23 +106,26 @@
     [tabs]="codeSnippets.propVsAttr.tabs"
   ></app-code>
 
-  <ul style="width: 45%; margin: 0 auto; text-align: left">
+  <!-- <ul style="width: 45%; margin: 0 auto; text-align: left">
     Property binding'in avantajları:
     <li>- Syntax daha kısadır.</li>
     <li>- Daha kolay okunur.</li>
     <li>- Daha performanslı çalışır.</li>
-  </ul>
+  </ul> -->
 </div>
 
 <div class="slide">
+  <h1 class="title">BIND VALUES BETWEEN COMPONENTS</h1>
+
   <img
+    sacma="true"
     width="800"
     src="https://angular.io/generated/images/guide/inputs-outputs/input.svg"
   />
 </div>
 
 <div class="slide">
-  <h1 class="title">TODO Bind Values Between Components</h1>
+  <h1 class="title">Bind Values Between Components</h1>
   <app-code
     [codes]="codeSnippets.image.codes"
     [tabs]="codeSnippets.image.tabs"

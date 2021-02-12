@@ -25,6 +25,7 @@ import { PipesComponent } from './pipes/pipes.component';
 import { registerLocaleData } from '@angular/common';
 import tr from '@angular/common/locales/tr';
 import { SortPipe } from './sort.pipe';
+import { ComplexExampleComponent } from './complex-example/complex-example.component';
 
 registerLocaleData(tr);
 
@@ -49,6 +50,7 @@ registerLocaleData(tr);
     MyForDirective,
     PipesComponent,
     SortPipe,
+    ComplexExampleComponent,
   ],
   imports: [
     BrowserModule,

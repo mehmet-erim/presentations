@@ -16,9 +16,16 @@ import { propertyBindingCodeSnippets } from './property-binding-code-snippets';
         justify-content: center;
         align-items: center;
       }
+
+      .bg-gray {
+        background: gray;
+      }
     `,
   ],
 })
 export class PropertyBindingComponent {
   codeSnippets = propertyBindingCodeSnippets;
+
+  styles = 'width: 100px; background-color: #9ee60c';
+  classes = 'rectangle bg-gray';
 }

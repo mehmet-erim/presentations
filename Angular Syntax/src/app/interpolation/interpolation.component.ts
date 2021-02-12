@@ -25,10 +25,6 @@ export class MyComponent {
   codes2 = [
     `
 <img src="{{ imgUrl }}" />
-
-<!-- ----------- -->
-
-<img [src]="imgUrl" />
 `,
     `
 @Component(/* component metadata */)
@@ -98,7 +94,7 @@ export class MyComponent {
 {{ data.user.address?.city?.x?.y?.z | json }}
 <!-- null -->
 
-{{data.user.address.city}}
+{{ data.user.address.city }}
 <!-- Error -->
 `,
     `
