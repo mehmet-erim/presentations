@@ -4,15 +4,14 @@ export const structuralDirectivesCodeSnippets = {
   ngFor: {
     codes: [
       `
-<div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackByFn">
-  Index: {{i}}
-  Hero: {{hero}}
-  Odd: {{odd}}
-</div>
+<ul>
+  <li *ngFor="let hero of heroes; let i = index;">
+    {{i + 1}}. {{hero}}
+  </li>
+</ul>
 `,
       `
 heroes = ['Hulk', 'Wolverine', 'Iron Man'];
-trackByFn: TrackByFunction<string> = (index: number, hero: string) => hero;
 `,
     ],
     tabs: standardTabs,
@@ -26,10 +25,12 @@ trackByFn: TrackByFunction<string> = (index: number, hero: string) => hero;
   [ngForOf]="heroes"
   let-hero
   let-i="index"
-  let-odd="odd"
-  [ngForTrackBy]="trackByFn"
 >
-  <div>Index: {{ i }}, Hero: {{ hero }}, Odd: {{ odd }}</div>
+  <ul>
+    <li>
+      {{i + 1}}. {{hero}}
+    </li>
+  </ul>
 </ng-template>
 `,
     ],
@@ -77,5 +78,59 @@ export class MyForDirective {
 `,
     ],
     tabs: ['HTML', { label: 'MyForDirective', lang: 'ts' }],
+  },
+
+  template: {
+    codes: [
+      `
+<button onclick="showHiddenContent()">Show hidden content</button>
+
+<template>
+  <div>Hidden content</div>
+</template>
+
+<script>
+  function showHiddenContent() {
+    const temp = document.querySelector('template');
+    const clone = temp.content.cloneNode(true);
+    document.body.appendChild(clone);
+  }
+</script>
+  `,
+    ],
+    tabs: ['HTML'],
+  },
+
+  ngTemplate: {
+    codes: [
+      `
+<ng-template>
+    <button>Submit</button>
+</ng-template>
+        `,
+    ],
+    tabs: ['HTML'],
+  },
+
+  ngIf: {
+    codes: [
+      `
+<div *ngIf="user else loading">
+    {{user}}
+</div>
+
+<ng-template #loading>
+    <div>Loading...</div>
+</ng-template>
+      
+      `,
+      `
+user: string;
+ngOnInit() {
+    setTimeout(() => this.user = 'John Doe', 2000)
+}
+    `,
+    ],
+    tabs: standardTabs,
   },
 };

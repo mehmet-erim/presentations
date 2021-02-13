@@ -1,6 +1,27 @@
 import { standardTabs } from '../event-binding/event-binding-code-snippets';
 
 export const ngTemplateCodeSnippets = {
+  template: {
+    codes: [
+      `
+  <button onclick="showHiddenContent()">Show hidden content</button>
+
+  <template>
+    <div>Hidden content</div>
+  </template>
+  
+  <script>
+    function showHiddenContent() {
+      const temp = document.querySelector('template');
+      const clone = temp.content.cloneNode(true);
+      document.body.appendChild(clone);
+    }
+  </script>
+  `,
+    ],
+    tabs: ['HTML'],
+  },
+
   ngTemplate: {
     codes: [
       `

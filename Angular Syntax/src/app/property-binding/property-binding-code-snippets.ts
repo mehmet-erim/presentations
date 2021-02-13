@@ -4,7 +4,7 @@ export const propertyBindingCodeSnippets = {
   basic: {
     codes: [
       `
-<img bind-src="mageUrl" /> 
+<img bind-src="imageUrl" /> 
 <img [src]="imageUrl">
 `,
       `export class MyComponent {
@@ -34,15 +34,25 @@ classes = 'rectangle bg-gray';
     tabs: standardTabs,
   },
 
+  propertyBindingAndInterpolation: {
+    codes: [
+      `
+<img src="{{ itemImageUrl }}">
+<img [src]="itemImageUrl">
+    `,
+    ],
+    tabs: ['HTML'],
+  },
+
   differenceAttributeProperty: {
     codes: [
       `
-<a href="/login">Login</a>
+<button aria-label="Close">X</button>
 
 <script>
-  const element = document.querySelector('a');
-  console.log(element.getAttribute('href')) // "/login"
-  console.log(element.href) // "http://localhost:3000/login"
+  const element = document.querySelector('button');
+  console.log(element.getAttribute('aria-label')) // "Close"
+  console.log(element.ariaLabel) // "Close"
 </script>
 `,
     ],
@@ -83,50 +93,69 @@ classes = 'rectangle bg-gray';
     tabs: ['HTML'],
   },
 
-  image: {
+  differenceAttributeProperty4: {
     codes: [
-      `<app-image></app-image>
-      
-<app-image [source]="'https://source.unsplash.com/user/erondu/150x150'">
-</app-image>
+      `
+<button>Submit</button>
+<script>
+const element = document.querySelector('button');
+element.disabled = "disabled"
 
-<app-image source="https://source.unsplash.com/user/erondu/150x150">
-</app-image>
+console.log(element.disabled) // true
+console.log(element.getAttribute('disabled')) // ""
+</script>
+`,
+    ],
+    tabs: ['HTML'],
+  },
+
+  counter: {
+    codes: [
+      `
+<app-counter></app-counter>
+      
+<app-counter [count]="myCount"></app-counter>
+`,
+      `
+myCount = 5;
 `,
 
       `
+import { Component, Input } from '@angular/core';
 @Component({
-  selector: 'app-image',
-  template: \`<img [src]="source" />\`
+  selector: 'app-counter',
+  template: \`
+    <button (click)="decrement()">-</button>
+    <span>{{count}}</span>
+    <button (click)="increment()">+</button>
+  \`
 })
-export class ImageComponent {
-  @Input() source = 'assets/images/no-image.png';
+export class CounterComponent {
+  @Input() count = 0;
+  increment() {
+    this.count = this.count + 1;
+  }
+  decrement() {
+    this.count = this.count - 1;
+  }
 }
 `,
     ],
     tabs: [
       { label: 'HTML', lang: 'html' },
-      { label: 'app-image', lang: 'ts' },
+      { label: 'TS', lang: 'ts' },
+      { label: 'app-counter', lang: 'ts' },
     ],
   },
 
   attrBinding: {
     codes: [
       `
-<button [attr.aria-label]="btnLabel">{{ btnLabel }}</button>
-<button [attr.aria-disabled]="disabled" [disabled]="disabled">Click me</button>
-<tr><td [attr.colspan]="1 + 1"></td></tr>
-
-<!-- Property binding -->
-
-<button [ariaLabel]="btnLabel">{{ btnLabel }}</button>
-<button [ariaDisabled]="disabled" [disabled]="disabled">Click me</button>
-<tr><td [colSpan]="1 + 1"></td></tr>
+<button [attr.aria-label]="btnLabel">X</button>
 `,
       `
 export class MyComponent {
-    btnLabel = 'Click me';
-    disabled: boolean;
+    btnLabel = 'Close';
 }
 `,
     ],

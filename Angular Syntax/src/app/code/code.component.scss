@@ -75,7 +75,7 @@ figure {
 .shell-body {
   margin: 0;
   max-height: 850px;
-  overflow-y: scroll;
+  overflow-y: scroll !important;
 
   pre {
     margin: 10px 20px 20px 20px !important;

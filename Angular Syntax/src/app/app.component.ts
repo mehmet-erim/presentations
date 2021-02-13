@@ -14,7 +14,7 @@ const sectionsColor = [
   '#a04d39',
   'rgb(66 177 176)',
   'rgb(177 85 98)',
-  'rgb(160 121 46)',
+  'rgb(173 30 30)',
   '#808e9b',
   '#0be881',
   '#b71540',
@@ -54,9 +54,7 @@ export class AppComponent {
   private listenToKeyup() {
     fromEvent(window, 'keyup')
       .pipe(
-        filter(
-          (event: KeyboardEvent) => event.key === 'ü' || event.key === 'ğ'
-        ),
+        filter((event: KeyboardEvent) => event.key === 'ü' || event.key === 'ğ'),
         debounceTime(150)
       )
       .subscribe((event) => {
@@ -70,9 +68,7 @@ export class AppComponent {
   ngOnInit() {
     this.config = {
       licenseKey: 'YOUR LICENSE KEY HERE',
-      anchors: Array.from(document.querySelectorAll('.section')).map(
-        (_, i) => '' + (i + 1)
-      ),
+      anchors: Array.from(document.querySelectorAll('.section')).map((_, i) => '' + (i + 1)),
       navigation: true,
       navigationPosition: 'left',
       sectionsColor,

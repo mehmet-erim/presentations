@@ -9,5 +9,5 @@ import { twoWayBindingCodeSnippets } from './two-way-binding-code-snippets';
 export class TwoWayBindingComponent {
   codeSnippets = twoWayBindingCodeSnippets;
 
-  myCount = 1;
+  count = 5;
 }

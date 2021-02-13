@@ -2,12 +2,23 @@
   <h1 class="title">Pipes</h1>
 
   <div class="content">
-    Pipe'lar, template içerisinde <strong>bir değeri dönüştürerek</strong> DOM'a
-    yerleştirmek için kullanabileceğiniz bileşenlerdir. Angular, <i>date</i>,
-    <i>slice</i>, <i>json</i>, <i>async</i>, <i>currency</i> gibi pek çok pipe'ı
-    bize built-in olarak sunmaktadır.
+    Pipe'lar, template içerisinde <strong>bir değeri dönüştürerek</strong> DOM'a yerleştirmek için
+    kullanabileceğiniz bileşenlerdir. Angular, <i>date</i>, <i>slice</i>, <i>json</i>, <i>async</i>,
+    <i>currency</i> gibi pek çok pipe'ı bize built-in olarak sunmaktadır.
   </div>
 </div>
+
+<div class="slide">
+  <app-code
+    [codes]="codeSnippets.plain.codes"
+    [tabs]="codeSnippets.plain.tabs"
+    [output]="plain"
+  ></app-code>
+</div>
+
+<ng-template #plain>
+  {{ birthdate }}
+</ng-template>
 
 <div class="slide">
   <h1 class="title"><code>DatePipe</code></h1>
@@ -34,9 +45,7 @@
 </div>
 
 <ng-template #parameterTmp>
-  {{ 17.9 | currency: "TRY":"symbol":"1.2-2" }}
-  <br />
-  {{ "2021.2.13" | date: "long" }}
+  {{ '2021.2.13' | date: 'long' }}
 </ng-template>
 
 <div class="slide">
@@ -50,10 +59,10 @@
 </div>
 
 <ng-template #chainedTmp>
-  {{ createdAt | async | date: "dd MMMM yyyy EEEE" | uppercase }}
+  {{ createdAt | async | date: 'dd MMMM yyyy EEEE' }}
 </ng-template>
 
-<div class="slide">
+<!-- <div class="slide">
   <h1 class="title">Custom Pipe</h1>
 
   <app-code
@@ -64,9 +73,9 @@
 </div>
 
 <ng-template #customTmp>
-  {{ ([302, 103, 871, 1, 99, 0] | sort).join(" - ") }}
+  {{ ([302, 103, 871, 1, 99, 0] | sort).join(' - ') }}
 
   <br />
 
-  {{ ([302, 103, 871, 1, 99, 0] | sort: true).join(" - ") }}
-</ng-template>
+  {{ ([302, 103, 871, 1, 99, 0] | sort: true).join(' - ') }}
+</ng-template> -->

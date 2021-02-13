@@ -10,5 +10,12 @@ export class StructuralDirectivesComponent {
   codeSnippets = structuralDirectivesCodeSnippets;
 
   heroes = ['Hulk', 'Wolverine', 'Iron Man'];
-  trackByFn: TrackByFunction<string> = (index: number, hero: string) => hero;
+
+  user: string;
+
+  templateTitle = '<template>';
+
+  setUser() {
+    setTimeout(() => (this.user = 'John Doe'), 2000);
+  }
 }

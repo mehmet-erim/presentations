@@ -42,11 +42,9 @@
     [codes]="optionalChaining"
     [tabs]="tabs"
     [output]="optionalChainingTmp"
-    [extras]="[
-      { tab: 'ERROR', output: errorImgTmp },
-      { tab: 'ANGULAR LANGUAGE SERVICE', output: alsTmp }
-    ]"
+    [extras]="[{ tab: 'ERROR', output: errorImgTmp }]"
   ></app-code>
+  <!-- { tab: 'ANGULAR LANGUAGE SERVICE', output: alsTmp } -->
 </div>
 
 <ng-template #optionalChainingTmp>
@@ -58,18 +56,11 @@
 </ng-template>
 
 <ng-template #errorImgTmp>
-  <img
-    src="assets/images/x-of-undefined-error.png"
-    alt="x-of-undefined-error.png"
-    height="70"
-  />
+  <img src="assets/images/x-of-undefined-error.png" alt="x-of-undefined-error.png" height="70" />
 </ng-template>
 
 <ng-template #alsTmp>
-  <img
-    src="assets/images/als-type-error.png"
-    alt="angular-language-service-type-error"
-  />
+  <img src="assets/images/als-type-error.png" alt="angular-language-service-type-error" />
 </ng-template>
 
 <div class="slide">

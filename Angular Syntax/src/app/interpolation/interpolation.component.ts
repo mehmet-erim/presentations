@@ -60,11 +60,11 @@ export class MyComponent {
 `,
     `
 @Component({
-  selector: 'app-test',
-  templateUrl: './test.component.html',
+  selector: 'app-demo',
+  templateUrl: './demo.component.html',
   interpolation: ['<%', '%>'],
 })
-export class MyComponent {
+export class DemoComponent {
   user = 'Mehmet';
 }
 `,

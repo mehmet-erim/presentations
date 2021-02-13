@@ -2,71 +2,71 @@
   <div class="content">
     <h1 class="title">Event Binding</h1>
 
-    <ul>
-      <li>
-        Event binding, mouse hareketleri, tıklamalar gibi pek çok built-in ve
-        custom event'i dinleyebilmeye olanak sağlar.
-      </li>
-    </ul>
+    <div class="content">
+      Event binding, mouse hareketleri, tıklamalar gibi JavaScript event'lerini ve Angular component
+      event'lerini dinlemeye olanak sağlar.
+    </div>
   </div>
+</div>
+
+<div class="slide">
+  <h1 class="title">JavaScript Events</h1>
+
+  <app-code
+    [codes]="codeSnippets.javascriptEvents.codes"
+    [tabs]="codeSnippets.javascriptEvents.tabs"
+  ></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title">JavaScript Events</h1>
+
+  <app-code
+    [codes]="codeSnippets.javascriptEvents2.codes"
+    [tabs]="codeSnippets.javascriptEvents2.tabs"
+  ></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title">Event Binding Syntax</h1>
+
+  <app-code [codes]="codeSnippets.syntax.codes" [tabs]="codeSnippets.syntax.tabs"></app-code>
 </div>
 
 <div class="slide">
   <h1 class="title">Event Binding</h1>
 
-  <app-code
-    [codes]="codeSnippets.basic.codes"
-    [tabs]="codeSnippets.basic.tabs"
-    [output]="basicTmp"
-  ></app-code>
+  <app-code [codes]="codeSnippets.basic.codes" [tabs]="codeSnippets.basic.tabs"></app-code>
 </div>
 
-<ng-template #basicTmp>
-  <button (click)="onSave()">Save</button>
-  <br />
-  <button (click)="onClick($event)">Click me</button>
+<div class="slide">
+  <h1 class="title">Key event filtering</h1>
 
-  <hr />
-  Input value: {{ inputValue }}
-  <br />
-  <input
-    style="font-size: 27px; padding: 5px"
-    placeholder="Type here"
-    (input)="inputValue = $event.target.value"
-    (keypress)="onKey($event)"
-  />
+  <app-code
+    [codes]="codeSnippets.keyFilter.codes"
+    [tabs]="codeSnippets.keyFilter.tabs"
+    [output]="keyFilterTmp"
+  ></app-code>
+  <!-- [extras]="[{ tab: 'ANGULAR LANGUAGE SERVICE', output: alsSuggestionsTmp }]" -->
+</div>
+
+<ng-template #keyFilterTmp>
+  <input placeholder="Type here" (keyup.enter)="submit($event)" (keydown.esc)="cancel($event)" />
 </ng-template>
 
 <div class="slide">
-  <h1 class="title">TODO</h1>
+  <h1 class="title">Key event filtering</h1>
 
   <app-code
-    [codes]="codeSnippets.modifiers.codes"
-    [tabs]="codeSnippets.modifiers.tabs"
-    [output]="modifiersTmp"
-    [extras]="[{ tab: 'ANGULAR LANGUAGE SERVICE', output: alsSuggestionsTmp }]"
+    [codes]="codeSnippets.keyFilter2.codes"
+    [tabs]="codeSnippets.keyFilter2.tabs"
+    [output]="keyFilter2Tmp"
   ></app-code>
+  <!-- [extras]="[{ tab: 'ANGULAR LANGUAGE SERVICE', output: alsSuggestionsTmp }]" -->
 </div>
 
-<ng-template #modifiersTmp>
-  Keyword: {{ keyword }}
-  <br />
-  <input
-    style="font-size: 27px; padding: 5px"
-    type="search"
-    placeholder="Enter a keyword..."
-    (keyup.enter)="search($event.target.value)"
-  />
-</ng-template>
-
-<ng-template #alsSuggestionsTmp>
-  <div style="padding: 8px">
-    <img
-      src="assets/images/als-event-suggestions.png"
-      alt="angular-language-service-event-suggestions"
-      width="600"
-    />
-  </div>
+<ng-template #keyFilter2Tmp>
+  <textarea (keyup.control.enter)="submit($event)" placeholder="Type here"></textarea>
 </ng-template>
 
 <div class="slide">
@@ -78,7 +78,7 @@
 </div>
 
 <div class="slide">
-  <h1 class="title">Custom Events with EventEmitter</h1>
+  <h1 class="title">Custom Events with <code>EventEmitter</code></h1>
 
   <app-code
     [codes]="codeSnippets.customEvents.codes"
@@ -88,10 +88,14 @@
 </div>
 
 <ng-template #customEventsTmp>
-  <app-image [source]="imgSrc" (error)="onError()"> </app-image>
+  <app-counter (countChange)="onCountChange($event)"></app-counter>
+
+  <br />
+
+  myCount: {{ myCount }}
 </ng-template>
 
-<div class="slide">
+<!-- <div class="slide">
   <h1 class="title">Custom Events with Subjects</h1>
 
   <app-code
@@ -99,7 +103,7 @@
     [tabs]="codeSnippets.customEventsWithSubjects.tabs"
     [output]="customEventsWithSubjectsTmp"
   ></app-code>
-</div>
+</div> -->
 
 <ng-template #customEventsWithSubjectsTmp>
   <div class="card">
@@ -108,5 +112,15 @@
 
       Card body
     </div>
+  </div>
+</ng-template>
+
+<ng-template #alsSuggestionsTmp>
+  <div style="padding: 8px">
+    <img
+      src="assets/images/als-event-suggestions.png"
+      alt="angular-language-service-event-suggestions"
+      width="600"
+    />
   </div>
 </ng-template>

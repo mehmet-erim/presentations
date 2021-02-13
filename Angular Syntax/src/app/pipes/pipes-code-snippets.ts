@@ -1,6 +1,18 @@
 import { standardTabs } from '../event-binding/event-binding-code-snippets';
 
 export const pipesCodeSnippets = {
+  plain: {
+    codes: [
+      `
+{{ birthdate }}
+        `,
+      `
+birthdate = new Date(1980, 0, 1);
+        `,
+    ],
+    tabs: standardTabs,
+  },
+
   date: {
     codes: [
       `
@@ -16,7 +28,6 @@ birthdate = new Date(1980, 0, 1);
   parameter: {
     codes: [
       `
-{{ 17.9 | currency: "TRY":"symbol":"1.2-2" }}
 {{ "2021.2.13" | date: "long" }}
         `,
     ],
@@ -26,7 +37,7 @@ birthdate = new Date(1980, 0, 1);
   chained: {
     codes: [
       `
-{{ createdAt | async | date: "dd MMMM yyyy EEEE" | uppercase }}
+{{ createdAt | async | date: "dd MMMM yyyy EEEE" }}
         `,
       `
 createdAt = Promise.resolve(new Date());

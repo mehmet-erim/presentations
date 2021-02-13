@@ -41,17 +41,8 @@
 <ng-template #modifierTmp>
   <div class="rectangle" style="width: 100px; background-color: #9ee60c"></div>
   <div class="rectangle" [style]="styles"></div>
-  <div
-    class="rectangle"
-    [style]="{ width: '150px', backgroundColor: '#9ee60c' }"
-  ></div>
-  <div
-    class="rectangle"
-    [style.width]="'100px'"
-    [style.backgroundColor]="'orange'"
-  >
-    100px
-  </div>
+  <div class="rectangle" [style]="{ width: '150px', backgroundColor: '#9ee60c' }"></div>
+  <div class="rectangle" [style.width]="'100px'" [style.backgroundColor]="'orange'">100px</div>
   <div class="rectangle" [style.background-color]="'orange'"></div>
   <div class="rectangle" [style.width.px]="100">100px</div>
   <div class="rectangle" [style.width.%]="70">70%</div>
@@ -60,15 +51,36 @@
 </ng-template>
 
 <div class="slide">
+  <h1 class="title">Property binding and interpolation</h1>
+
+  <app-code
+    [codes]="codeSnippets.propertyBindingAndInterpolation.codes"
+    [tabs]="codeSnippets.propertyBindingAndInterpolation.tabs"
+  ></app-code>
+</div>
+
+<div class="slide">
   <h1 class="title">Difference between attribute and property</h1>
 
   <app-code
     [codes]="codeSnippets.differenceAttributeProperty.codes"
     [tabs]="codeSnippets.differenceAttributeProperty.tabs"
+    [extras]="[
+      { tab: 'Properties', output: buttonPropertiesImg },
+      { tab: 'Attributes', output: buttonAttributesImg }
+    ]"
   ></app-code>
 </div>
 
-<div class="slide">
+<ng-template #buttonPropertiesImg>
+  <img width="550" src="assets/images/button-aria-props.jpg" />
+</ng-template>
+
+<ng-template #buttonAttributesImg>
+  <img src="assets/images/button-aria-attrs.jpg" />
+</ng-template>
+
+<!-- <div class="slide">
   <h1 class="title">Difference between attribute and property</h1>
 
   <app-code
@@ -87,17 +99,21 @@
 </div>
 
 <div class="slide">
+  <h1 class="title">Difference between attribute and property</h1>
+
+  <app-code
+    [codes]="codeSnippets.differenceAttributeProperty4.codes"
+    [tabs]="codeSnippets.differenceAttributeProperty4.tabs"
+  ></app-code>
+</div> -->
+
+<div class="slide">
   <h1 class="title">Attribute Binding</h1>
   <app-code
     [codes]="codeSnippets.attrBinding.codes"
     [tabs]="codeSnippets.attrBinding.tabs"
-    [extras]="[{ tab: 'SS', output: btnAttributesSS }]"
   ></app-code>
 </div>
-
-<ng-template #btnAttributesSS>
-  <img src="assets/images/btn-attributes.png" height="70" />
-</ng-template>
 
 <div class="slide">
   <h1 class="title">Property Binding vs Attribute Binding</h1>
@@ -127,20 +143,15 @@
 <div class="slide">
   <h1 class="title">Bind Values Between Components</h1>
   <app-code
-    [codes]="codeSnippets.image.codes"
-    [tabs]="codeSnippets.image.tabs"
-    [output]="appImageTmp"
+    [codes]="codeSnippets.counter.codes"
+    [tabs]="codeSnippets.counter.tabs"
+    [output]="appCounterTmp"
   ></app-code>
 </div>
 
-<ng-template #appImageTmp>
-  <app-image></app-image>
+<ng-template #appCounterTmp>
+  <app-counter></app-counter>
   <hr />
-  <app-image
-    [source]="'https://source.unsplash.com/user/erondu/150x150'"
-  ></app-image>
+  <app-counter [count]="5"></app-counter>
   <hr />
-  <app-image
-    source="https://source.unsplash.com/user/erondu/160x160"
-  ></app-image>
 </ng-template>

@@ -2,30 +2,22 @@
   <h1 class="title">Two Way Binding</h1>
 
   <div class="content">
-    Two way binding, üst ve alt componentler arasında veri paylaşımını sağlar.
-    Veri değiştiğinde, üst ve alt component'de aynı anda güncellenir.
+    Two way binding, üst ve alt componentler arasında veri paylaşımını sağlar. Veri değiştiğinde,
+    üst ve alt component'de aynı anda güncellenir.
   </div>
 </div>
 
 <div class="slide">
-  <h1 class="title">Custom Two Way Binding</h1>
+  <h1 class="title">Syntax</h1>
 
-  <app-code
-    [codes]="codeSnippets.custom.codes"
-    [tabs]="codeSnippets.custom.tabs"
-    [output]="customTmp"
-  ></app-code>
+  <app-code [codes]="codeSnippets.syntax.codes" [tabs]="codeSnippets.syntax.tabs"></app-code>
 </div>
 
-<ng-template #customTmp>
-  <app-counter [(count)]="myCount"></app-counter>
-  <br />
+<div class="slide">
+  <h1 class="title">Syntax</h1>
 
-  <span style="font-size: 25px" (click)="myCount = myCount + 1"
-    ><code style="font-size: 25px; margin-right: 5px">myCount</code>:
-    {{ myCount }}</span
-  >
-</ng-template>
+  <app-code [codes]="codeSnippets.syntax2.codes" [tabs]="codeSnippets.syntax2.tabs"></app-code>
+</div>
 
 <div class="slide">
   <h1 class="title"><code>ngModel</code></h1>
@@ -38,13 +30,28 @@
 </div>
 
 <ng-template #ngModelTmp>
-  <input style="font-size: 30px" type="number" [(ngModel)]="myCount" min="0" />
+  <input type="number" [(ngModel)]="count" />
 
+  <span>count: {{ count }}</span>
+  <button style="margin-left: 15px" (click)="count = count + 1">+</button>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">Custom Two Way Binding</h1>
+
+  <app-code
+    [codes]="codeSnippets.custom.codes"
+    [tabs]="codeSnippets.custom.tabs"
+    [output]="customTmp"
+  ></app-code>
+</div>
+
+<ng-template #customTmp>
+  <app-counter [(count)]="count"></app-counter>
   <br />
 
-  <span style="font-size: 30px" (click)="myCount = myCount + 1"
-    ><code style="font-size: 30px; margin-right: 5px">myCount</code>:
-    {{ myCount }}</span
+  <span style="font-size: 25px" (click)="count = count + 1"
+    ><code style="font-size: 25px; margin-right: 5px">myCount</code>: {{ count }}</span
   >
 </ng-template>
 

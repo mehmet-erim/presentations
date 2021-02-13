@@ -1,7 +1,32 @@
 <div class="slide">
   <h1 class="title">Structural Directives</h1>
 
-  <div class="content">TODO</div>
+  <div class="content">
+    Structural directive'ler HTML elemanlarına eklenirler. Eklendiği elemanın içeriği
+    değiştirebilir, yeni eklemeler yapabilir veya DOM'dan kaldırabilirler.
+  </div>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>[ngFor]</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngForOf.codes"
+    [tabs]="codeSnippets.ngForOf.tabs"
+    [output]="ngForOfTmp"
+  ></app-code>
+</div>
+
+<ng-template #ngForOfTmp>
+  <ng-template ngFor [ngForOf]="heroes" let-hero let-i="index">
+    <ul>
+      <li>{{ i + 1 }}. {{ hero }}</li>
+    </ul>
+  </ng-template>
+</ng-template>
+
+<div class="slide">
+  <img src="assets/images/wow.gif" alt="" />
 </div>
 
 <div class="slide">
@@ -15,42 +40,12 @@
 </div>
 
 <ng-template #ngForTmp>
-  <div
-    *ngFor="
-      let hero of heroes;
-      let i = index;
-      let odd = odd;
-      trackBy: trackByFn
-    "
-  >
-    Index: {{ i }}, Hero: {{ hero }}, Odd: {{ odd }}
-  </div>
+  <ul>
+    <li *ngFor="let hero of heroes; let i = index">{{ i + 1 }}. {{ hero }}</li>
+  </ul>
 </ng-template>
 
-<div class="slide">
-  <h1 class="title"><code>[ngForOf]</code></h1>
-
-  <app-code
-    [codes]="codeSnippets.ngForOf.codes"
-    [tabs]="codeSnippets.ngForOf.tabs"
-    [output]="ngForOfTmp"
-  ></app-code>
-</div>
-
-<ng-template #ngForOfTmp>
-  <ng-template
-    ngFor
-    [ngForOf]="heroes"
-    let-hero
-    let-i="index"
-    let-odd="odd"
-    [ngForTrackBy]="trackByFn"
-  >
-    <div>Index: {{ i }}, Hero: {{ hero }}, Odd: {{ odd }}</div>
-  </ng-template>
-</ng-template>
-
-<div class="slide">
+<!-- <div class="slide">
   <h1 class="title"><code>*myFor</code></h1>
 
   <app-code
@@ -58,17 +53,55 @@
     [tabs]="codeSnippets.myFor.tabs"
     [output]="myForTmp"
   ></app-code>
-</div>
+</div> -->
 
 <ng-template #myForTmp>
-  <div
-    *myFor="
-      let hero of heroes;
-      let i = index;
-      let odd = odd;
-      trackBy: trackByFn
-    "
-  >
+  <div *myFor="let hero of heroes; let i = index; let odd = odd">
     Index: {{ i }}, Hero: {{ hero }}, Odd: {{ odd }}
   </div>
+</ng-template>
+
+<div class="slide">
+  <h1 class="title">
+    <code>{{ templateTitle }}</code>
+  </h1>
+
+  <app-code [codes]="codeSnippets.template.codes" [tabs]="codeSnippets.template.tabs"></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>*ngIf</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngIf.codes"
+    [tabs]="codeSnippets.ngIf.tabs"
+    [output]="ngIfTmp"
+    (changeTab)="$event === 'output' ? setUser() : (user = null)"
+  ></app-code>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code>ng-template</code></h1>
+
+  <app-code
+    [codes]="codeSnippets.ngTemplate.codes"
+    [tabs]="codeSnippets.ngTemplate.tabs"
+    [output]="ngTemplateTmp"
+  ></app-code>
+</div>
+
+<ng-template #ngTemplateTmp>
+  <ng-template>
+    <button>Submit</button>
+  </ng-template>
+</ng-template>
+
+<ng-template #ngIfTmp>
+  <div *ngIf="user; else loading">
+    {{ user }}
+  </div>
+
+  <ng-template #loading>
+    <div>Loading...</div>
+  </ng-template>
 </ng-template>

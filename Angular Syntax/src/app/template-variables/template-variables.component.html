@@ -4,10 +4,8 @@
   <div class="content">
     <ul>
       <li>
-        TODO: Şablon değişkenleri, şablonun bir bölümündeki verileri şablonun
-        başka bir bölümünde kullanmanıza yardımcı olur. Şablon değişkenleriyle,
-        kullanıcı girdisine yanıt verme veya uygulamanızın formlarını hassas bir
-        şekilde ayarlama gibi görevleri gerçekleştirebilirsiniz.
+        Template variables, şablondaki bir elemanı başka bir yerde kullanabilmek bir template
+        değişkeni oluşturur.
       </li>
     </ul>
   </div>
@@ -50,12 +48,7 @@
     (keyup.enter)="email.focus()"
   />
 
-  <input
-    style="display: none"
-    #email
-    placeholder="Email"
-    (keyup.enter)="subscribe()"
-  />
+  <input style="display: none" #email placeholder="Email" (keyup.enter)="subscribe()" />
 </ng-template>
 
 <div class="slide">
@@ -65,8 +58,8 @@
     [codes]="codeSnippets.variableOnComponent.codes"
     [tabs]="codeSnippets.variableOnComponent.tabs"
     [output]="variableOnComponentTmp"
-    [extras]="[{ tab: 'ANGULAR LANGUAGE SERVICE', output: alsSuggestions }]"
   ></app-code>
+  <!-- [extras]="[{ tab: 'ANGULAR LANGUAGE SERVICE', output: alsSuggestions }]" -->
 </div>
 
 <ng-template #variableOnComponentTmp>
@@ -91,11 +84,7 @@
 </div>
 
 <ng-template #directiveTmp>
-  <div
-    style="min-height: 300px"
-    #dropdownRef="dropdown"
-    [dropdown]="dropdownMenu"
-  >
+  <div style="min-height: 300px" #dropdownRef="dropdown" [dropdown]="dropdownMenu">
     <button (click)="dropdownRef.toggle()">Toggle</button>
 
     <div #dropdownMenu>

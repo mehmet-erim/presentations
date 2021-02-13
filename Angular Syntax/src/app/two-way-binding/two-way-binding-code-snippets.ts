@@ -1,6 +1,25 @@
 const standardTabs = ['HTML', 'TS'];
 
 export const twoWayBindingCodeSnippets = {
+  syntax: {
+    codes: [
+      `
+<element bindon-target="value"></value>
+<element [(target)]="value"></element>
+    `,
+    ],
+    tabs: ['HTML'],
+  },
+
+  syntax2: {
+    codes: [
+      `
+<element [target]="value" (targetChange)="value = $event"></element>
+    `,
+    ],
+    tabs: ['HTML'],
+  },
+
   custom: {
     codes: [
       `
@@ -33,63 +52,27 @@ export class CounterComponent {
   }
 }
 `,
-      `
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-
-@Component({
-  selector: 'app-counter',
-  template: \`
-    <button (click)="decrement()">-</button>
-    <span>{{ count }}</span>
-    <button (click)="increment()">+</button>
-  \`,
-})
-export class CounterComponent {
-  @Output() countChange = new EventEmitter<number>();
-  private _count = 0;
-  @Input()
-  set count(value: number) {
-    this._count = value;
-    this.countChange.emit(value);
-  }
-  get count() {
-    return this._count;
-  }
-  increment() {
-    this.count = this.count + 1;
-  }
-  decrement() {
-    this.count = this.count - 1;
-  }
-}
-
-`,
     ],
-    tabs: [
-      ...standardTabs,
-      { label: 'app-counter', lang: 'ts' },
-      { label: 'app-counter-v2', lang: 'ts' },
-    ],
+    tabs: [...standardTabs, { label: 'app-counter', lang: 'ts' }],
   },
 
   ngModel: {
     codes: [
       `
-<input type="number" [(ngModel)]="myCount" />
-<span (click)="myCount = myCount + 1">myCount: {{ myCount }}</span>
+<input type="number" [(ngModel)]="count" />
+<span>count: {{ count }}</span> <button (click)="count = count + 1"></button>
+      `,
+      `
+count = 5;
       `,
     ],
-    tabs: ['HTML'],
+    tabs: standardTabs,
   },
 
   controlValueAccessor: {
     codes: [
       `
 <app-counter [(ngModel)]="count"></app-counter>
-
-<form [formGroup]="form">
-<app-counter formControlName="count"></app-counter>
-</form>
       `,
     ],
     tabs: ['HTML'],

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { eventBindingCodeSnippets } from './event-binding-code-snippets';
+import fireworks from 'fireworks';
 
 @Component({
   selector: 'app-event-binding',
@@ -28,21 +29,60 @@ export class EventBindingComponent {
 
   keyword = '';
 
-  onKey(event: KeyboardEvent) {}
+  myCount = 3;
 
-  onSave() {
-    alert('save');
+  onMouseOver(event: MouseEvent) {
+    console.log(event);
+  }
+
+  onInput(event: InputEvent) {
+    console.log(event);
   }
 
   onClick(event: MouseEvent) {
-    alert('clicked');
+    console.log(event);
   }
 
   onError() {
     this.imgSrc = 'assets/images/no-image.png';
   }
 
-  search(keyword: string) {
-    this.keyword = keyword;
+  submit(event: KeyboardEvent) {
+    firework();
   }
+
+  cancel(event: KeyboardEvent) {
+    console.log(event);
+  }
+
+  onCountChange(count: number) {
+    this.myCount = count;
+  }
+}
+
+function firework() {
+  fireworks({
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+    canvasWidth: 1200,
+    canvasHeight: 800,
+  });
+
+  setTimeout(() => {
+    fireworks({
+      x: window.innerWidth / 3,
+      y: window.innerHeight / 3,
+      canvasWidth: 1200,
+      canvasHeight: 800,
+    });
+  }, 750);
+
+  setTimeout(() => {
+    fireworks({
+      x: window.innerWidth / 4,
+      y: window.innerHeight / 4,
+      canvasWidth: 1200,
+      canvasHeight: 800,
+    });
+  }, 1500);
 }

@@ -1,27 +1,67 @@
 export const standardTabs = ['HTML', 'TS'];
 
 export const eventBindingCodeSnippets = {
+  javascriptEvents: {
+    codes: [
+      `
+<button onclick="onClick()">Click me</button>
+
+<script>
+  function onClick() {
+    console.log('clicked')
+  }
+</script>
+      `,
+    ],
+    tabs: ['HTML'],
+  },
+  javascriptEvents2: {
+    codes: [
+      `
+<button>Click me</button>
+
+<script>
+  function onClick(event) {
+    console.log(event) // mouse event
+  }
+
+  const element = document.querySelector('button');
+  element.addEventListener('click', onClick);
+  // removeEventListener ??
+</script>
+      `,
+    ],
+    tabs: ['HTML'],
+  },
+
+  syntax: {
+    codes: [
+      `
+<button on-click="onClick($event)">Click me</button>    
+<button (click)="onClick($event)">Click me</button>
+    `,
+      `
+onClick(event: MouseEvent) {
+  event.preventDefault();
+}
+    `,
+    ],
+    tabs: standardTabs,
+  },
   basic: {
     codes: [
       `
-<button (click)="onSave()">Save</button>
-<button (click)="onClick($event)">Click me</button>
+<button (mouseover)="onMouseOver($event)">Hover me</button>
 
-Input value: {{ inputValue }}
 <input
   placeholder="Type here" 
-  (input)="inputValue = $event.target.value"
-  (keypress)="onKey($event)"/>  
+  (input)="onInput($event)"/>  
 `,
       `
-inputValue = '';
-onSave() {
-  alert('save');
+onMouseOver(event: MouseEvent) {
+  event.preventDefault();
 }
-onClick(event: MouseEvent) {
-  alert('clicked');
-}
-onKey(event: KeyboardEvent) {
+onInput(event: KeyboardEvent) {
   console.log(event)
 }
 `,
@@ -29,55 +69,97 @@ onKey(event: KeyboardEvent) {
     tabs: standardTabs,
   },
 
-  modifiers: {
+  keyFilter: {
     codes: [
       `
-Keyword: {{ keyword }}
 <input
-type="search"
-placeholder="Enter a keyword..."
-(keyup.enter)="search($event.target.value)"
+  placeholder="Type here"
+  (keyup.enter)="submit($event)"
+  (keydown.esc)="cancel($event)"
 />
 `,
       `
-keyword = '';
-search(keyword: string) {
-  this.keyword = keyword;
+submit(event: KeyboardEvent) {
+  console.log(event);
+}
+cancel(event: KeyboardEvent) {
+  console.log(event);
 }
       `,
+      `
+document.querySelector('input').addEventListener('keyup', function (event) {
+  if (e.key === 'Enter') {
+    console.log(event);
+  }
+});
+`,
     ],
-    tabs: standardTabs,
+    tabs: [...standardTabs, { label: 'JS', lang: 'js' }],
+  },
+
+  keyFilter2: {
+    codes: [
+      `
+<textarea 
+  (keyup.control.enter)="submit($event)" 
+  placeholder="Type here">
+</textarea>
+`,
+      `
+submit(event: KeyboardEvent) {
+  console.log(event);
+}
+      `,
+      `
+document.querySelector('textarea')
+  .addEventListener('keyup', function (event) {
+    if (event.ctrlKey && event.key === 'Enter') {
+      submit(event)
+    }
+});
+`,
+    ],
+    tabs: [...standardTabs, { label: 'JS', lang: 'js' }],
   },
 
   customEvents: {
     codes: [
       `
-@Component({
-  selector: 'app-image',
-  template: \`<img [src]="source" (error)="error.emit()" />\`
-})
-export class ImageComponent {
-  @Input() source = 'assets/images/no-image.png';
-  @Output() error = new EventEmitter<void>();
+<app-counter (countChange)="onCountChange($event)"></app-counter>
+
+myCount: {{ myCount }}
+`,
+      `
+myCount = 3;
+
+onCountChange(count: number) {
+  this.myCount = count;
 }
 `,
       `
-<app-image [source]="imgSrc" (error)="onError()">
-</app-image>
-`,
-      `export class MyComponent {
-  imgSrc = 'https://example.com/no-image.jpg'
-
-  onError() {
-    this.imgSrc = 'assets/images/no-image.png'
+import { Component, Output, EventEmitter } from '@angular/core';
+@Component({
+  selector: 'app-counter',
+  template: \`
+    <button (click)="decrement()">-</button>
+    <span>{{count}}</span>
+    <button (click)="increment()">+</button>
+  \`
+})
+export class CounterComponent {
+  @Output() countChange = new EventEmitter();
+  increment() {
+    this.count = this.count + 1;
+    this.countChange.emit(this.count);
   }
-}`,
+  decrement() {
+    this.count = this.count - 1;
+    this.countChange.emit(this.count);
+  }
+}
+      `,
     ],
-    tabs: [
-      { label: 'app-image', lang: 'ts' },
-      { label: 'HTML', lang: 'html' },
-      { label: 'TS', lang: 'ts' },
-    ],
+    tabs: [...standardTabs, { label: 'app-counter', lang: 'ts' }],
   },
 
   customEventsWithSubjects: {

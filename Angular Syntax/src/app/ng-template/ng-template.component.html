@@ -1,13 +1,23 @@
 <div class="slide">
-  <h1 class="title">Angular Templates</h1>
+  <h1 class="title">Templates</h1>
 
-  <div class="content">TODO</div>
+  <!-- <div class="content">TODO</div> -->
 </div>
 
 <div class="slide">
   <h1 class="title"><code>ng-template</code></h1>
 
-  <div class="content">TODO</div>
+  <div class="content">
+    Angular Core tarafından sunulan bir instruction'dır. Tekrar kullanılabilen template'ler
+    oluşturabilmek için ve content projection için kullanılır. Kullanılmadığı sürece DOM'da bir
+    karşılığı yoktur.
+  </div>
+</div>
+
+<div class="slide">
+  <h1 class="title"><code innerHtml="<template>"></code></h1>
+
+  <app-code [codes]="codeSnippets.template.codes" [tabs]="codeSnippets.template.tabs"></app-code>
 </div>
 
 <div class="slide">
@@ -73,7 +83,11 @@
 <div class="slide">
   <h1 class="title"><code>ng-container</code></h1>
 
-  <div class="content">TODO</div>
+  <div class="content">
+    <code>ng-container</code>, Angular parser tarafından tanınan bir syntax elemanıdır. Kapsayıcı
+    bir elemandır, DOM'da bir karşılığı yoktur. İçerisine yerleştirilen content'i doğrudan DOM'a
+    basar. Content projection için de kullanılır.
+  </div>
 </div>
 
 <div class="slide">
@@ -163,9 +177,7 @@
   </form>
 
   <ng-template #submitBtnTemplate>
-    <button type="submit" class="btn btn-primary btn-block btn-sm">
-      Submit
-    </button>
+    <button type="submit" class="btn btn-primary btn-block btn-sm">Submit</button>
   </ng-template>
 </ng-template>
 
