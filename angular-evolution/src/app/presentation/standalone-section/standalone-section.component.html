@@ -1,0 +1,164 @@
+<section>
+  <h3 class="r-fit-text">Modülsüz Angular</h3>
+</section>
+
+<section>
+  <h3>Standalone Nedir?</h3>
+
+  <div class="fragment fade-up">
+    <div class="text-left mb-4">
+      <p class="mb-4">
+        🔹 NgModule olmadan Angular componentleri oluşturmanın yeni bir yolu
+      </p>
+    </div>
+  </div>
+
+  <div class="fragment fade-up">
+    <div class="text-left mb-4">
+      <p class="mb-4">🔹 Kendi bağımlılıklarını yöneten bağımsız bileşenler</p>
+    </div>
+  </div>
+
+  <div class="fragment fade-up">
+    <div class="grid grid-cols-2 gap-4">
+      <div>
+        <h4 class="text-red-500">Before</h4>
+        <pre><code data-trim data-noescape class="language-typescript">
+        {{before}}
+                    </code></pre>
+      </div>
+      <div>
+        <h4 class="text-green-500">After</h4>
+        <pre><code data-trim data-noescape class="language-typescript">
+            {{after}}
+          </code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <section>
+    <h3>Standalone Directive</h3>
+    <pre><code>{{ codeSnippets.standaloneDirective }}</code></pre>
+  </section>
+  <section>
+    <h3>Standalone Pipe</h3>
+    <pre><code>{{ codeSnippets.standalonePipe }}</code></pre>
+  </section>
+  <section>
+    <h3>Standalone Component</h3>
+    <pre><code>{{ codeSnippets.standaloneComponent }}</code></pre>
+  </section>
+</section>
+
+<section class="h-fill top-0">
+  <h3>Avantajlar</h3>
+
+  <section>
+    <div class="fragment fade-up">
+      <h4 class="text-green-600">📦 Basitleştirilmiş Yapılandırma</h4>
+      <p>NgModule gerektirmez - bağımlılıklar doğrudan bileşende tanımlanır</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="fragment fade-up">
+      <h4 class="text-green-600">🎯 Daha İyi Tree-Shaking</h4>
+      <p>
+        Kullanılmayan bağımlılıklar kolayca temizlenir, bundle boyutu küçülür
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="fragment fade-up">
+      <h4 class="text-green-600">⚡ Gelişmiş Lazy Loading</h4>
+      <p>Bileşenler modül yükü olmadan bağımsız olarak yüklenebilir</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="fragment fade-up">
+      <h4 class="text-green-600">👨‍💻 Daha İyi Geliştirici Deneyimi</h4>
+      <p>Daha az boilerplate kod, daha sezgisel bileşen organizasyonu</p>
+    </div>
+  </section>
+</section>
+
+<section>
+  <h2 class="fragment fade-in-then-out">Shared Modules</h2>
+  <h2 class="fragment fade-in-then-out">SCAM</h2>
+  <h2 class="fragment fade-up r-fit-text">
+    <strong class="text-red-500">S</strong>ingle
+    <strong class="text-red-500">C</strong>omponent
+    <strong class="text-red-500">A</strong>ngular
+    <strong class="text-red-500">M</strong>odule
+  </h2>
+</section>
+<section>
+  <p>X bir projeden bir SharedModule</p>
+  <section>
+    <pre><code data-line-numbers="3-5|8-10|13-15|">
+        <table>
+          <tr>
+            <td>Apples</td>
+            <td>$1</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <td>Oranges</td>
+            <td>$2</td>
+            <td>18</td>
+          </tr>
+          <tr>
+            <td>Kiwi</td>
+            <td>$3</td>
+            <td>1</td>
+          </tr>
+        </table>
+        </code></pre>
+  </section>
+</section>
+
+<section>
+  <p>Olumsuz Yanları</p>
+</section>
+
+<section>
+  <p>Düzen Çabaları</p>
+
+  <section>SharedUtilsModule SharedUiModule SharedDirectivesModule</section>
+</section>
+
+<section>
+  SCAM
+
+  <section>scam örneği</section>
+</section>
+
+<section>
+  Olumlu/Olumsuz Yanları
+
+  <p class="fragment">1.</p>
+  <p class="fragment">2.</p>
+  <p class="fragment">3.</p>
+</section>
+
+<section>Standalone Components Örnek</section>
+
+<section>
+  Standalone Olumlu Yanları, Olumsuz yanları
+
+  <span class="text-green-600">Module karmaşasından kurtulduk</span>
+  <span class="text-green-600"
+    >Her bağımlılık tek bir dosyada, daha yönetilebilir</span
+  >
+  <span class="text-green-600"
+    >Componentleri istediğimiz kadar module ekleyebiliyoruz</span
+  >
+</section>
+
+<section></section>
+
+<section>Ekstra bilgiler, tree shaking, bundle size, etc.</section>
