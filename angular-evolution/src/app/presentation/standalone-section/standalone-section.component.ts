@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RemoveSelectorDirective } from '../../remove-selector.directive';
 import { codeSnippets } from '../code-snippets';
+import { standaloneCodeSnippets } from './standalone-code-snippets';
 
 @Component({
   selector: 'standalone-section',
@@ -26,5 +27,5 @@ export class MyModule { }
 })
 export class MyComponent { }
   `;
-  codeSnippets = codeSnippets;
+  codeSnippets = standaloneCodeSnippets;
 }

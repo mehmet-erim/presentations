@@ -86,41 +86,10 @@ export class CustomerListComponent implements OnInit {
 }
 `;
 
-export const standaloneComponent = `
-  @Component({
-    selector: "my-standalone-component",
-    template: \`my-standalone-component-works!\`,
-    standalone: true,
-    imports: [MyStandaloneDirective, MyStandalonePipe]
-  })
-  export class MyStandaloneComponent {}
-
-`;
-
-export const standaloneDirective = `
-  @Directive({
-    selector: "my-standalone-directive",
-    standalone: true
-  })
-  export class MyStandaloneDirective {}
-
-`;
-
-export const standalonePipe = `
-  @Pipe({
-    selector: "myStandalonePipe",
-    standalone: true
-  })
-  export class MyStandalonePipe {}
-  
-`;
 
 export const codeSnippets = {
   angular13AppModule,
   angular13AppRouting,
   angular13customersModule,
   angular13customerListComponent,
-  standaloneComponent,
-  standaloneDirective,
-  standalonePipe,
 };
